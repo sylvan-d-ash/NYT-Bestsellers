@@ -41,8 +41,8 @@ final class CategoriesListPresenter {
                 case .finished:
                     break
                 }
-            } receiveValue: { [weak self] categories in
-                self?.categories = categories
+            } receiveValue: { [weak self] resonse in
+                self?.categories = resonse.results
                 self?.view?.displayCategories()
             }
             .store(in: &cancellables)
