@@ -48,6 +48,10 @@ final class CategoriesListPresenter {
             .store(in: &cancellables)
     }
 
+    func numberOfRows() -> Int {
+        return categories.count
+    }
+
     func getCategoryName(forRowAt index: Int) -> String {
         return categories[index].name
     }

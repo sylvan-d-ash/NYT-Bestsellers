@@ -9,13 +9,15 @@ import UIKit
 
 class CategoriesListViewController: UIViewController {
     private let tableview = UITableView(frame: .zero, style: .plain)
-    private let items = [1...10]
+    private var presenter: CategoriesListPresenter!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         setupSubviews()
-        loadData()
+
+        presenter = CategoriesListPresenter(view: self)
+        presenter.fetchCategories()
     }
 }
 
@@ -42,20 +44,37 @@ private extension CategoriesListViewController {
             tableview.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
     }
+}
 
-    func loadData() {
+extension CategoriesListViewController: CategoriesListView {
+    func showLoading() {
         //
+    }
+    
+    func hideLoading() {
+        //
+    }
+    
+    func displayCategories() {
+        tableview.reloadData()
+    }
+    
+    func displayError(_ error: String) {
+        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
     }
 }
 
 extension CategoriesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return presenter.numberOfRows()
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let category = presenter.getCategoryName(forRowAt: indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(UITableViewCell.self)", for: indexPath)
-        cell.textLabel?.text = "#\(indexPath.row)"
+        cell.textLabel?.text = "\(category)"
         return cell
     }
 }
