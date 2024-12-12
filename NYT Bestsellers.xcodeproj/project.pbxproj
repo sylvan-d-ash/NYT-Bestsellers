@@ -32,6 +32,7 @@
 		5EA1525C2D0A506B005D7AEB /* CategoriesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListPresenter.swift; sourceTree = "<group>"; };
 		5EA1525E2D0B73BE005D7AEB /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		5EA152602D0B75F2005D7AEB /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		5EA152622D0B912A005D7AEB /* secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = secrets.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +49,7 @@
 		5EA1523A2D09E225005D7AEB = {
 			isa = PBXGroup;
 			children = (
+				5EA152622D0B912A005D7AEB /* secrets.xcconfig */,
 				5EA152452D09E225005D7AEB /* NYT Bestsellers */,
 				5EA152442D09E225005D7AEB /* Products */,
 			);
@@ -303,6 +305,7 @@
 		};
 		5EA152582D09E227005D7AEB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EA152622D0B912A005D7AEB /* secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -331,6 +334,7 @@
 		};
 		5EA152592D09E227005D7AEB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EA152622D0B912A005D7AEB /* secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
