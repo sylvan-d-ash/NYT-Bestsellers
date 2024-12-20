@@ -1,29 +1,25 @@
 //
-//  CategoriesListViewController.swift
+//  BooksListViewController.swift
 //  NYT Bestsellers
 //
-//  Created by Sylvan Ash on 11/12/2024.
+//  Created by Sylvan Ash on 20/12/2024.
 //
 
 import UIKit
 
-final class CategoriesListViewController: UIViewController {
+final class BooksListViewController: UIViewController {
     private let tableview = UITableView(frame: .zero, style: .plain)
-    private var presenter: CategoriesListPresenter!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         setupSubviews()
-
-        presenter = CategoriesListPresenter(view: self)
-        presenter.fetchCategories()
     }
 }
 
-private extension CategoriesListViewController {
+private extension BooksListViewController {
     func setupNavigationBar() {
-        navigationItem.title = "Books Categories"
+        navigationItem.title = "Books List"
     }
 
     func setupSubviews() {
@@ -46,41 +42,17 @@ private extension CategoriesListViewController {
     }
 }
 
-extension CategoriesListViewController: CategoriesListView {
-    func showLoading() {
-        //
-    }
-    
-    func hideLoading() {
-        //
-    }
-    
-    func displayCategories() {
-        tableview.reloadData()
-    }
-    
-    func displayError(_ error: String) {
-        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
-    }
-}
-
-extension CategoriesListViewController: UITableViewDataSource {
+extension BooksListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.numberOfRows()
+        return 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let category = presenter.getCategoryName(forRowAt: indexPath.row)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "\(UITableViewCell.self)", for: indexPath)
-        cell.textLabel?.text = "\(category)"
-        cell.selectionStyle = .none
-        return cell
+        return UITableViewCell()
     }
 }
 
-extension CategoriesListViewController: UITableViewDelegate {
+extension BooksListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //
     }
