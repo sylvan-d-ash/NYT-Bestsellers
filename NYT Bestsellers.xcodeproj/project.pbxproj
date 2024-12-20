@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5E42438B2D157F06001FD883 /* BooksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E42438A2D157F06001FD883 /* BooksListViewController.swift */; };
 		5E42438D2D158562001FD883 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E42438C2D158562001FD883 /* BooksViewModel.swift */; };
+		5E42438F2D1585DD001FD883 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E42438E2D1585DD001FD883 /* Book.swift */; };
 		5EA152472D09E225005D7AEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA152462D09E225005D7AEB /* AppDelegate.swift */; };
 		5EA152492D09E225005D7AEB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA152482D09E225005D7AEB /* SceneDelegate.swift */; };
 		5EA1524B2D09E225005D7AEB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1524A2D09E225005D7AEB /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		5E42438A2D157F06001FD883 /* BooksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListViewController.swift; sourceTree = "<group>"; };
 		5E42438C2D158562001FD883 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
+		5E42438E2D1585DD001FD883 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		5EA152432D09E225005D7AEB /* NYT Bestsellers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NYT Bestsellers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EA152462D09E225005D7AEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EA152482D09E225005D7AEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				5EA1525A2D09E46D005D7AEB /* CategoriesListViewController.swift */,
 				5E42438A2D157F06001FD883 /* BooksListViewController.swift */,
 				5E42438C2D158562001FD883 /* BooksViewModel.swift */,
+				5E42438E2D1585DD001FD883 /* Book.swift */,
 				5EA1525C2D0A506B005D7AEB /* CategoriesListPresenter.swift */,
 				5EA1525E2D0B73BE005D7AEB /* APIService.swift */,
 				5EA152602D0B75F2005D7AEB /* Category.swift */,
@@ -166,6 +169,7 @@
 				5EA1525F2D0B73BE005D7AEB /* APIService.swift in Sources */,
 				5EA152492D09E225005D7AEB /* SceneDelegate.swift in Sources */,
 				5E42438D2D158562001FD883 /* BooksViewModel.swift in Sources */,
+				5E42438F2D1585DD001FD883 /* Book.swift in Sources */,
 				5EA152612D0B75F2005D7AEB /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

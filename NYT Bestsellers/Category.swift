@@ -8,11 +8,13 @@
 import Foundation
 
 struct Category: Decodable {
-    let display_name: String
-    let list_name_encoded: String
+    let id: String
+    let name: String
 
-    var id: String { return list_name_encoded }
-    var name: String { return display_name }
+    private enum CodingKeys: String, CodingKey {
+        case id = "list_name_encoded"
+        case name = "display_name"
+    }
 }
 
 struct CategoriesResponse: Decodable {
