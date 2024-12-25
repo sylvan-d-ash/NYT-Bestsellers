@@ -17,11 +17,11 @@ protocol CategoriesListView: AnyObject {
 
 final class CategoriesListPresenter {
     private weak var view: CategoriesListView?
-    private let service: CategoriesListService
+    private let service: CategoriesServiceProtocol
     private var categories = [Category]()
     private var cancellables = Set<AnyCancellable>()
 
-    init(view: CategoriesListView? = nil, service: CategoriesListService = APIService()) {
+    init(view: CategoriesListView? = nil, service: CategoriesServiceProtocol = CategoriesService()) {
         self.view = view
         self.service = service
     }

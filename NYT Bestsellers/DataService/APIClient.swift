@@ -61,11 +61,10 @@ final class URLSessionAPIClient: APIClient {
     }
 
     private func getQueryItems(for parameters: [String: Any]?) -> [URLQueryItem]? {
-        var parameters = parameters
-        parameters?["api-key"] = Self.apiKey
-        print(parameters)
+        var parameters = parameters ?? [:]
+        parameters["api-key"] = Self.apiKey
 
-        return parameters?.map { key, value in
+        return parameters.map { key, value in
             var stringValue: String?
 
             switch value {
