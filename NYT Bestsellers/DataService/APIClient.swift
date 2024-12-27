@@ -20,6 +20,7 @@ enum APIError: Error {
 
 protocol APIClient {
     func request<T: Decodable>(_ endpoint: APIEndpoint) -> AnyPublisher<T, Error>
+    func request<T: Decodable>(_ endpoint: APIEndpoint) async -> Result<T, Error>
 }
 
 final class URLSessionAPIClient: APIClient {
@@ -58,6 +59,32 @@ final class URLSessionAPIClient: APIClient {
             .decode(type: T.self, decoder: JSONDecoder())
             .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
+    }
+
+    func request<T>(_ endpoint: APIEndpoint) async -> Result<T, Error> where T : Decodable {
+        guard var url = URL(string: baseUrl) else {
+            return .failure(URLError(.badURL))
+        }
+        url = url.appending(path: endpoint.path)
+
+        guard var components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
+            return .failure(URLError(.badURL))
+        }
+        components.queryItems = getQueryItems(for: endpoint.parameters)
+
+        guard let url = components.url else {
+            return .failure(URLError(.badURL))
+        }
+
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let response = try JSONDecoder().decode(T.self, from: data)
+            return .success(response)
+        } catch _ as DecodingError {
+            return .failure(APIError.invalidData)
+        } catch {
+            return .failure(APIError.invalidResponse)
+        }
     }
 
     private func getQueryItems(for parameters: [String: Any]?) -> [URLQueryItem]? {
