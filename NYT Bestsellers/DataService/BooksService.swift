@@ -22,6 +22,7 @@ enum BookEndpoint: APIEndpoint {
 
 protocol BooksServiceProtocol {
     func fetchBooks(for category: String) -> AnyPublisher<BooksResponse, Error>
+    func fetchBooks(for category: String) async -> Result<BooksResponse, Error>
 }
 
 final class BooksService: BooksServiceProtocol {
@@ -34,5 +35,10 @@ final class BooksService: BooksServiceProtocol {
     func fetchBooks(for category: String) -> AnyPublisher<BooksResponse, Error> {
         let endpoint = BookEndpoint.getBooks(forCategory: category)
         return apiClient.request(endpoint)
+    }
+
+    func fetchBooks(for category: String) async -> Result<BooksResponse, Error> {
+        let endpoint = BookEndpoint.getBooks(forCategory: category)
+        return await apiClient.request(endpoint)
     }
 }

@@ -22,6 +22,7 @@
 		5EA1525D2D0A506B005D7AEB /* CategoriesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1525C2D0A506B005D7AEB /* CategoriesListPresenter.swift */; };
 		5EA1525F2D0B73BE005D7AEB /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1525E2D0B73BE005D7AEB /* APIClient.swift */; };
 		5EA152612D0B75F2005D7AEB /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA152602D0B75F2005D7AEB /* Category.swift */; };
+		5EB7E1602D1EBB4C008DC2B6 /* BooksListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7E15F2D1EBB4C008DC2B6 /* BooksListPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		5EA1525E2D0B73BE005D7AEB /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		5EA152602D0B75F2005D7AEB /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		5EA152622D0B912A005D7AEB /* secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = secrets.xcconfig; sourceTree = "<group>"; };
+		5EB7E15F2D1EBB4C008DC2B6 /* BooksListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,10 +92,11 @@
 				5EA152462D09E225005D7AEB /* AppDelegate.swift */,
 				5EA152482D09E225005D7AEB /* SceneDelegate.swift */,
 				5EA1525A2D09E46D005D7AEB /* CategoriesListViewController.swift */,
+				5EA1525C2D0A506B005D7AEB /* CategoriesListPresenter.swift */,
 				5E42438A2D157F06001FD883 /* BooksListViewController.swift */,
+				5EB7E15F2D1EBB4C008DC2B6 /* BooksListPresenter.swift */,
 				5E42438C2D158562001FD883 /* BooksViewModel.swift */,
 				5E42438E2D1585DD001FD883 /* Book.swift */,
-				5EA1525C2D0A506B005D7AEB /* CategoriesListPresenter.swift */,
 				5EA152602D0B75F2005D7AEB /* Category.swift */,
 				5EA1524A2D09E225005D7AEB /* ViewController.swift */,
 				5EA1524C2D09E225005D7AEB /* Main.storyboard */,
@@ -181,6 +184,7 @@
 				5EA152472D09E225005D7AEB /* AppDelegate.swift in Sources */,
 				5EA1525D2D0A506B005D7AEB /* CategoriesListPresenter.swift in Sources */,
 				5EA1525B2D09E46D005D7AEB /* CategoriesListViewController.swift in Sources */,
+				5EB7E1602D1EBB4C008DC2B6 /* BooksListPresenter.swift in Sources */,
 				5EA1525F2D0B73BE005D7AEB /* APIClient.swift in Sources */,
 				5EA152492D09E225005D7AEB /* SceneDelegate.swift in Sources */,
 				5E42438D2D158562001FD883 /* BooksViewModel.swift in Sources */,

@@ -11,14 +11,13 @@ import Combine
 protocol CategoriesListView: AnyObject {
     func showLoading()
     func hideLoading()
-    func displayCategories()
+    func display(_ categories: [Category])
     func displayError(_ error: String)
 }
 
 final class CategoriesListPresenter {
     private weak var view: CategoriesListView?
     private let service: CategoriesServiceProtocol
-    private var categories = [Category]()
     private var cancellables = Set<AnyCancellable>()
 
     init(view: CategoriesListView? = nil, service: CategoriesServiceProtocol = CategoriesService()) {
@@ -41,18 +40,10 @@ final class CategoriesListPresenter {
                 case .finished:
                     break
                 }
-            } receiveValue: { [weak self] resonse in
-                self?.categories = resonse.results
-                self?.view?.displayCategories()
+            } receiveValue: { [weak self] response in
+                let categories = response.results
+                self?.view?.display(categories)
             }
             .store(in: &cancellables)
-    }
-
-    func numberOfRows() -> Int {
-        return categories.count
-    }
-
-    func getCategoryName(forRowAt index: Int) -> String {
-        return categories[index].name
     }
 }

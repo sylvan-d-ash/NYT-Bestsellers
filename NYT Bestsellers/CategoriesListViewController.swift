@@ -10,6 +10,7 @@ import UIKit
 final class CategoriesListViewController: UIViewController {
     private let tableview = UITableView(frame: .zero, style: .plain)
     private var presenter: CategoriesListPresenter!
+    private var categories = [Category]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ final class CategoriesListViewController: UIViewController {
 private extension CategoriesListViewController {
     func setupNavigationBar() {
         navigationItem.title = "Books Categories"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     func setupSubviews() {
@@ -55,7 +57,8 @@ extension CategoriesListViewController: CategoriesListView {
         //
     }
     
-    func displayCategories() {
+    func display(_ categories: [Category]) {
+        self.categories = categories
         tableview.reloadData()
     }
     
@@ -68,13 +71,13 @@ extension CategoriesListViewController: CategoriesListView {
 
 extension CategoriesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.numberOfRows()
+        return categories.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let category = presenter.getCategoryName(forRowAt: indexPath.row)
+        let category = categories[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(UITableViewCell.self)", for: indexPath)
-        cell.textLabel?.text = "\(category)"
+        cell.textLabel?.text = "\(category.name)"
         cell.selectionStyle = .none
         return cell
     }
@@ -82,6 +85,8 @@ extension CategoriesListViewController: UITableViewDataSource {
 
 extension CategoriesListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //
+        let category = categories[indexPath.row]
+        let controller = BooksListViewController(category: category)
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
