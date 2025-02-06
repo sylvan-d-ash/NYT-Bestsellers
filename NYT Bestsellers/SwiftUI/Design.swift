@@ -13,7 +13,7 @@ struct Card: View {
             Image("Placeholder")
                 .resizable()
                 .scaledToFill()
-                .frame(width: 100, height: 150)
+                .frame(width: 110, height: 150)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
 
             VStack(alignment: .leading, spacing: 8) {
