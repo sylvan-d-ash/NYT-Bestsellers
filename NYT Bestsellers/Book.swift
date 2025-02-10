@@ -8,15 +8,17 @@
 import Foundation
 
 struct Book: Decodable {
+    let rank: Int
     let title: String
     let author: String
     let publisher: String
-    let rank: Int
     let previousRank: Int
+    let isbn13: String
 
     private enum CodingKeys: String, CodingKey {
         case title, author, publisher, rank
         case previousRank = "rank_last_week"
+        case isbn13 = "primary_isbn13"
     }
 }
 

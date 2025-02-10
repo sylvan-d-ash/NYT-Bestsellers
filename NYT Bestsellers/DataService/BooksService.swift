@@ -13,7 +13,7 @@ enum BookEndpoint: APIEndpoint {
 
     var path: String {
         switch self {
-        case .getBooks(let category): return "/lists/current/" + category
+        case .getBooks(let category): return "/lists/current/" + category + ".json"
         }
     }
 
