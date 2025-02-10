@@ -14,11 +14,14 @@ struct Book: Decodable {
     let publisher: String
     let previousRank: Int
     let isbn13: String
+    let description: String
+    let imageUrl: String
 
     private enum CodingKeys: String, CodingKey {
-        case title, author, publisher, rank
+        case title, author, publisher, rank, description
         case previousRank = "rank_last_week"
         case isbn13 = "primary_isbn13"
+        case imageUrl = "book_image"
     }
 }
 
