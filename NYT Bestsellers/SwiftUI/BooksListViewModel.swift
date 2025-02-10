@@ -11,7 +11,7 @@ final class BooksListViewModel: ObservableObject {
     @Published private(set) var rank1Book: Book?
     @Published private(set) var books: [Book] = []
     @Published private(set) var isLoading = false
-    @Published private(set) var errorMessage: String?
+    @Published var errorMessage: String?
 
     private let category: Category
     private let service: BooksServiceProtocol
