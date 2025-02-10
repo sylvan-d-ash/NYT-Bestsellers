@@ -16,34 +16,35 @@ struct CategoriesView: View {
                 if viewModel.isLoading {
                     ProgressView()
                         .padding()
-                }
-
-                ForEach(viewModel.categories, id: \.id) { category in
-                    NavigationLink(value: category) {
-                        Text(category.name)
+                } else {
+                    ForEach(viewModel.categories, id: \.id) { category in
+                        NavigationLink(value: category) {
+                            Text(category.name)
+                        }
                     }
                 }
             }
-        }
-        .navigationTitle("Bestsellers Categories")
-        .navigationDestination(for: Category.self) { category in
-            // TODO:
-            // load books list view and pass `category` object
-        }
-        .task {
-            viewModel.loadCategories()
-        }
-        .alert(
-            "Error",
-            isPresented: Binding(
-                get: { viewModel.errorMessage != nil },
-                set: { if !$0 { viewModel.errorMessage = nil }}
-            ),
-            presenting: viewModel.errorMessage) { _ in
-                Button("Cancel", role: .cancel) {}
-            } message: { message in
-                Text(message)
+            .preferredColorScheme(.dark)
+            .navigationTitle("Bestsellers Categories")
+            .navigationDestination(for: Category.self) { category in
+                BooksList(category: category)
             }
+            .task {
+                viewModel.loadCategories()
+            }
+            .alert(
+                "Error",
+                isPresented: .constant(viewModel.errorMessage != nil)
+            ) {
+                Button("Cancel", role: .cancel) {
+                    viewModel.errorMessage = nil
+                }
+            } message: {
+                if let message = viewModel.errorMessage {
+                    Text(message)
+                }
+            }
+        }
     }
 }
 
