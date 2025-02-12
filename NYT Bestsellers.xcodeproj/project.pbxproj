@@ -27,6 +27,7 @@
 		5EAB1D692D54F70300BDF8C6 /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB1D682D54F70300BDF8C6 /* CategoriesViewModel.swift */; };
 		5EAB1D6B2D5A0C2700BDF8C6 /* BooksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB1D6A2D5A0C2700BDF8C6 /* BooksList.swift */; };
 		5EAB1D6D2D5A0E5400BDF8C6 /* BooksListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB1D6C2D5A0E5400BDF8C6 /* BooksListViewModel.swift */; };
+		5EAB1D6F2D5CB39500BDF8C6 /* BookDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB1D6E2D5CB39500BDF8C6 /* BookDetailsView.swift */; };
 		5EB7E1602D1EBB4C008DC2B6 /* BooksListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7E15F2D1EBB4C008DC2B6 /* BooksListPresenter.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		5EAB1D682D54F70300BDF8C6 /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
 		5EAB1D6A2D5A0C2700BDF8C6 /* BooksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksList.swift; sourceTree = "<group>"; };
 		5EAB1D6C2D5A0E5400BDF8C6 /* BooksListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListViewModel.swift; sourceTree = "<group>"; };
+		5EAB1D6E2D5CB39500BDF8C6 /* BookDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsView.swift; sourceTree = "<group>"; };
 		5EB7E15F2D1EBB4C008DC2B6 /* BooksListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +129,7 @@
 				5EAB1D682D54F70300BDF8C6 /* CategoriesViewModel.swift */,
 				5EAB1D6A2D5A0C2700BDF8C6 /* BooksList.swift */,
 				5EAB1D6C2D5A0E5400BDF8C6 /* BooksListViewModel.swift */,
+				5EAB1D6E2D5CB39500BDF8C6 /* BookDetailsView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				5E4243962D1CBE08001FD883 /* BooksService.swift in Sources */,
 				5EAB1D632D495CFD00BDF8C6 /* Design.swift in Sources */,
 				5EA1524B2D09E225005D7AEB /* ViewController.swift in Sources */,
+				5EAB1D6F2D5CB39500BDF8C6 /* BookDetailsView.swift in Sources */,
 				5EAB1D672D54E96A00BDF8C6 /* CategoriesView.swift in Sources */,
 				5E42438B2D157F06001FD883 /* BooksListViewController.swift in Sources */,
 				5EA152472D09E225005D7AEB /* AppDelegate.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Rank1BookView: View {
+private struct Rank1BookView: View {
     @State var book: Book
 
     var body: some View {
@@ -81,18 +81,22 @@ struct BooksList: View {
                         .padding()
                 } else {
                     if let book = viewModel.rank1Book {
-                        Rank1BookView(book: book)
+                        NavigationLink(destination: BookDetailsView(book: book)) {
+                            Rank1BookView(book: book)
+                        }
                     }
 
                     LazyVGrid(columns: generateGridItems(), spacing: 12) {
                         ForEach(viewModel.books, id: \.rank) { book in
-                            AsyncImage(url: URL(string: book.imageUrl)) { image in
-                                image
-                                    .resizable()
-                                    .scaledToFit()
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                            } placeholder: {
-                                ProgressView()
+                            NavigationLink(destination: BookDetailsView(book: book)) {
+                                AsyncImage(url: URL(string: book.imageUrl)) { image in
+                                    image
+                                        .resizable()
+                                        .scaledToFit()
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                                } placeholder: {
+                                    ProgressView()
+                                }
                             }
                         }
                     }
@@ -138,5 +142,5 @@ struct BooksList: View {
 #Preview {
     let id = "combined-print-and-e-book-fiction"
     let category = Category(id: id, name: "Print Fiction")
-    return BooksList(category: category)
+    return NavigationStack { BooksList(category: category) }
 }
