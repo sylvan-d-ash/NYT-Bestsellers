@@ -29,8 +29,6 @@ private extension CategoriesListViewController {
     }
 
     func setupSubviews() {
-        view.backgroundColor = .white
-
         tableview.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
         tableview.tableFooterView = UIView()
         tableview.separatorInset = UIEdgeInsets()
