@@ -14,18 +14,28 @@ struct CategoriesView: View {
         NavigationStack {
             List {
                 if viewModel.isLoading {
-                    ProgressView()
-                        .padding()
+                    VStack {
+                        ProgressView()
+                    }
+                    .frame(maxWidth: .infinity)
+                    .listRowBackground(Color.clear)
                 } else {
                     ForEach(viewModel.categories, id: \.id) { category in
-                        NavigationLink(value: category) {
+                        ZStack(alignment: .leading) {
+                            NavigationLink(value: category) {
+                                EmptyView()
+                            }
+                            .opacity(0)
+
                             Text(category.name)
                         }
+                        .listRowBackground(Color.clear)
+                        .listRowInsets(EdgeInsets(top: 7, leading: 0, bottom: 7, trailing: 0))
                     }
                 }
             }
             .preferredColorScheme(.dark)
-            .navigationTitle("Bestsellers Categories")
+            .navigationTitle("Bestseller Categories")
             .navigationDestination(for: Category.self) { category in
                 BooksList(category: category)
             }
