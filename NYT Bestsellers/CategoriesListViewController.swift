@@ -50,11 +50,15 @@ private extension CategoriesListViewController {
 
 extension CategoriesListViewController: CategoriesListView {
     func showLoading() {
-        //
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.center = tableview.center
+        indicator.hidesWhenStopped = true
+        tableview.tableFooterView = indicator
+        indicator.startAnimating()
     }
     
     func hideLoading() {
-        //
+        tableview.tableFooterView = UIView()
     }
     
     func display(_ categories: [Category]) {
