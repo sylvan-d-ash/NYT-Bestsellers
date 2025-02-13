@@ -24,7 +24,7 @@ final class CategoriesListViewController: UIViewController {
 
 private extension CategoriesListViewController {
     func setupNavigationBar() {
-        navigationItem.title = "Books Categories"
+        navigationItem.title = "Bestseller Categories"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 

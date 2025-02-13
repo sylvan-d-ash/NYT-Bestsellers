@@ -40,8 +40,6 @@ private extension BooksListViewController {
     }
 
     func setupSubviews() {
-        view.backgroundColor = .white
-
         tableview.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
         tableview.tableFooterView = UIView()
         tableview.separatorInset = UIEdgeInsets()
@@ -61,11 +59,25 @@ private extension BooksListViewController {
 
 extension BooksListViewController: BooksListView {
     func showLoading() {
-        // TODO
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.center = tableview.center
+        indicator.hidesWhenStopped = true
+
+        let view = UIView()
+        view.addSubview(indicator)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            indicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            indicator.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+        ])
+
+        tableview.tableFooterView = view
+        indicator.startAnimating()
     }
 
     func hideLoading() {
-        // TODO
+        tableview.tableFooterView = UIView()
     }
 
     func display(_ books: [Book]) {
