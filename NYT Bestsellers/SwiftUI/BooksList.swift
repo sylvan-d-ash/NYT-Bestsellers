@@ -53,6 +53,7 @@ private struct Rank1BookView: View {
 
                 Text(book.description)
                     .font(.caption)
+                    .multilineTextAlignment(.leading)
             }
             .foregroundStyle(.white)
             .frame(maxWidth: .infinity)
@@ -104,7 +105,6 @@ struct BooksList: View {
             }
             .padding(.horizontal, 16)
         }
-        .background(Color.black)
         .preferredColorScheme(.dark)
         .navigationTitle(category.name)
         .task {

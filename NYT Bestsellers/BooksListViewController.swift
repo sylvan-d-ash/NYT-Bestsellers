@@ -7,6 +7,66 @@
 
 import UIKit
 
+final class CardViewCell: UICollectionViewCell {
+    private let bookImage = UIImageView()
+    private let loadingIndicator = UIActivityIndicatorView()
+    private let titleLabel = UILabel()
+    private let authorLabel = UILabel()
+    private let publisherLabel = UILabel()
+    private let isbnLabel = UILabel()
+    private let descriptionLabel = UILabel()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupSubviews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func configure(_ book: Book) {
+        titleLabel.text = book.title
+        authorLabel.text = book.author
+        publisherLabel.text = book.publisher
+        isbnLabel.text = book.isbn13
+        descriptionLabel.text = book.description
+        loadingIndicator.startAnimating()
+        // TODO: load image
+    }
+
+    private func setupSubviews() {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 0.105, green: 0.776, blue: 0.744, alpha: 1)
+        view.layer.cornerRadius = 10
+        view.layer.masksToBounds = true
+
+        let imageSection = setupImageSection()
+        view.addSubview(imageSection)
+        imageSection.fillParentVertically(16)
+        imageSection.alignToLeft(16)
+    }
+
+    private func setupImageSection() -> UIView {
+        let view = UIView()
+
+        bookImage.layer.cornerRadius = 10
+        bookImage.layer.masksToBounds = true
+        bookImage.contentMode = .scaleAspectFill
+        view.addSubview(bookImage)
+        bookImage.setWidthConstraint(110)
+        bookImage.setHeightConstraint(150)
+        bookImage.fillParent()
+
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.style = .medium
+        view.addSubview(loadingIndicator)
+        loadingIndicator.centerInParent()
+
+        return view
+    }
+}
+
 final class BooksListViewController: UIViewController {
     private let tableview = UITableView(frame: .zero, style: .plain)
     private let category: Category
