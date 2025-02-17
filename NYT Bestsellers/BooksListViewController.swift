@@ -150,8 +150,42 @@ final class CardViewCell: UICollectionViewCell {
     }
 }
 
+final class BookViewCell: UICollectionViewCell {
+    private let coverImageView = UIImageView()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupSubviews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func configure(_ book: Book) {
+        // TODO: load image + show placeholder
+    }
+
+    private func setupSubviews() {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 12
+        view.layer.masksToBounds = true
+        contentView.addSubview(view)
+        view.fillParent()
+
+        coverImageView.image = UIImage(named: "Radiance")
+        coverImageView.layer.cornerRadius = 12
+        coverImageView.layer.masksToBounds = true
+        coverImageView.contentMode = .scaleAspectFill
+        coverImageView.setHeightConstraint(150)
+        view.addSubview(coverImageView)
+        coverImageView.fillParent(2)
+    }
+}
+
 final class BooksListViewController: UIViewController {
-    private let tableview = UITableView(frame: .zero, style: .plain)
+    private var collectionView: UICollectionView!
     private let category: Category
     private var presenter: BooksListPresenter!
     private var books: [Book] = []
@@ -183,49 +217,55 @@ private extension BooksListViewController {
     }
 
     func setupSubviews() {
-        tableview.register(UITableViewCell.self, forCellReuseIdentifier: "\(UITableViewCell.self)")
-        tableview.tableFooterView = UIView()
-        tableview.separatorInset = UIEdgeInsets()
-        tableview.dataSource = self
-        tableview.delegate = self
-        tableview.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(tableview)
+        let layout = configureCellLayout()
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .black
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(CardViewCell.self, forCellWithReuseIdentifier: String(describing: CardViewCell.self))
+        collectionView.register(BookViewCell.self, forCellWithReuseIdentifier: String(describing: BookViewCell.self))
+        view.addSubview(collectionView)
+        collectionView.fillParent()
+    }
 
-        NSLayoutConstraint.activate([
-            tableview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableview.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableview.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            tableview.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-        ])
+    func configureCellLayout() -> UICollectionViewLayout {
+        let spacing: CGFloat = 12
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = spacing
+        layout.minimumInteritemSpacing = spacing
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+
+        return layout
     }
 }
 
 extension BooksListViewController: BooksListView {
     func showLoading() {
-        let indicator = UIActivityIndicatorView(style: .medium)
-        indicator.center = tableview.center
-        indicator.hidesWhenStopped = true
-
-        let view = UIView()
-        view.addSubview(indicator)
-        indicator.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            indicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            indicator.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
-        ])
-
-        tableview.tableFooterView = view
-        indicator.startAnimating()
+//        let indicator = UIActivityIndicatorView(style: .medium)
+//        indicator.center = tableview.center
+//        indicator.hidesWhenStopped = true
+//
+//        let view = UIView()
+//        view.addSubview(indicator)
+//        indicator.translatesAutoresizingMaskIntoConstraints = false
+//
+//        NSLayoutConstraint.activate([
+//            indicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            indicator.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
+//        ])
+//
+//        tableview.tableFooterView = view
+//        indicator.startAnimating()
     }
 
     func hideLoading() {
-        tableview.tableFooterView = UIView()
+//        tableview.tableFooterView = UIView()
     }
 
     func display(_ books: [Book]) {
         self.books = books
-        tableview.reloadData()
+        collectionView.reloadData()
+//        tableview.reloadData()
     }
 
     func displayError(_ error: String) {
@@ -235,22 +275,52 @@ extension BooksListViewController: BooksListView {
     }
 }
 
-extension BooksListViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension BooksListViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return books.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let book = books[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "\(UITableViewCell.self)", for: indexPath)
-        cell.textLabel?.text = "\(book.title)"
-        cell.selectionStyle = .none
+
+        if indexPath.row == 0 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CardViewCell.self), for: indexPath) as? CardViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.configure(book)
+            return cell
+        }
+
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BookViewCell.self), for: indexPath) as? BookViewCell else {
+            return UICollectionViewCell()
+        }
+        cell.configure(book)
         return cell
     }
 }
 
-extension BooksListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //
+extension BooksListViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // TODO: navigate to book details
+    }
+}
+
+extension BooksListViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let spacing: CGFloat = 12
+
+        if indexPath.row == 0 {
+            let width = view.bounds.width - (2 * spacing)
+            let height: CGFloat = /* image height */ 150 + /* top + bottom padding */ (2 * 16)
+            return CGSize(width: width, height: height)
+        }
+
+        let numberOfColumns: CGFloat = 3
+        let totalSpacing = (numberOfColumns - 1) * 2
+        let availableWidth = view.bounds.width - (totalSpacing + (2 * spacing) + (2 * 10))
+        let cellWidth = floor(availableWidth / numberOfColumns)
+
+        let height: CGFloat = /* image height */ 150 + /* top + bottom padding */ (2 * 2)
+        return CGSize(width: cellWidth, height: height)
     }
 }
