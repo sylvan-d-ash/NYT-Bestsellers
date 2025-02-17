@@ -32,7 +32,7 @@ final class CardViewCell: UICollectionViewCell {
         isbnLabel.text = book.isbn13
         descriptionLabel.text = book.description
         loadingIndicator.startAnimating()
-        // TODO: load image
+        // TODO: load image & show placeholder
     }
 
     private func setupSubviews() {
@@ -40,16 +40,26 @@ final class CardViewCell: UICollectionViewCell {
         view.backgroundColor = UIColor(red: 0.105, green: 0.776, blue: 0.744, alpha: 1)
         view.layer.cornerRadius = 10
         view.layer.masksToBounds = true
+        contentView.addSubview(view)
+        view.fillParent()
 
         let imageSection = setupImageSection()
-        view.addSubview(imageSection)
-        imageSection.fillParentVertically(16)
-        imageSection.alignToLeft(16)
+//        view.addSubview(imageSection)
+//        imageSection.fillParentVertically(16)
+//        imageSection.alignToLeft(16)
+        let infoSection = setupInfoSection()
+        let stackview = UIStackView(arrangedSubviews: [imageSection, infoSection])
+        stackview.axis = .horizontal
+        stackview.spacing = 8
+        stackview.alignment = .leading
+        view.addSubview(stackview)
+        stackview.fillParent(16)
     }
 
     private func setupImageSection() -> UIView {
         let view = UIView()
 
+        bookImage.image = UIImage(named: "Oathbringer")
         bookImage.layer.cornerRadius = 10
         bookImage.layer.masksToBounds = true
         bookImage.contentMode = .scaleAspectFill
@@ -62,6 +72,79 @@ final class CardViewCell: UICollectionViewCell {
         loadingIndicator.style = .medium
         view.addSubview(loadingIndicator)
         loadingIndicator.centerInParent()
+
+        return view
+    }
+
+    private func setupInfoSection() -> UIView {
+        let titleSection = setupTitleSection()
+        let publisherSection = setupPublisherAndISBNSection()
+
+        descriptionLabel.font = .systemFont(ofSize: 12)
+        descriptionLabel.textColor = .label
+        descriptionLabel.numberOfLines = 0
+
+        let view = UIStackView(arrangedSubviews: [titleSection, publisherSection, descriptionLabel])
+        view.axis = .vertical
+        view.spacing = 8
+        view.alignment = .leading
+
+        return view
+    }
+
+    private func setupTitleSection() -> UIView {
+        titleLabel.numberOfLines = 2
+        titleLabel.minimumScaleFactor = 0.7
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.font = .boldSystemFont(ofSize: 17)
+
+        authorLabel.numberOfLines = 1
+        authorLabel.minimumScaleFactor = 0.7
+        authorLabel.adjustsFontSizeToFitWidth = true
+        authorLabel.font = .systemFont(ofSize: 15, weight: .semibold)
+
+        let view = UIStackView(arrangedSubviews: [titleLabel, authorLabel])
+        view.axis = .vertical
+        view.spacing = 8
+        view.alignment = .leading
+
+        return view
+    }
+
+    private func setupPublisherAndISBNSection() -> UIView {
+        let pubTitleLabel = UILabel()
+        pubTitleLabel.text = "Publisher:"
+        pubTitleLabel.font = .systemFont(ofSize: 12, weight: .semibold)
+        pubTitleLabel.textColor = UIColor(red: 0.042, green: 0.343, blue: 0.34, alpha: 1)
+
+        publisherLabel.font = .systemFont(ofSize: 12, weight: .semibold)
+        publisherLabel.textColor = UIColor(red: 0.784, green: 0.42, blue: 0.479, alpha: 1)
+        publisherLabel.numberOfLines = 1
+        publisherLabel.minimumScaleFactor = 0.7
+        publisherLabel.adjustsFontSizeToFitWidth = true
+
+        let isbnTitleLabel = UILabel()
+        isbnTitleLabel.text = "Publisher:"
+        isbnTitleLabel.font = .systemFont(ofSize: 12, weight: .semibold)
+        isbnTitleLabel.textColor = UIColor(red: 0.042, green: 0.343, blue: 0.34, alpha: 1)
+
+        isbnLabel.font = .systemFont(ofSize: 12, weight: .semibold)
+        isbnLabel.textColor = UIColor(red: 0.784, green: 0.42, blue: 0.479, alpha: 1)
+
+        let leftView = UIStackView(arrangedSubviews: [pubTitleLabel, isbnTitleLabel])
+        leftView.axis = .vertical
+        leftView.spacing = 4
+        leftView.alignment = .leading
+
+        let rightView = UIStackView(arrangedSubviews: [publisherLabel, isbnLabel])
+        rightView.axis = .vertical
+        rightView.spacing = 4
+        rightView.alignment = .leading
+
+        let view = UIStackView(arrangedSubviews: [leftView, rightView])
+        view.axis = .horizontal
+        view.spacing = 8
+        view.alignment = .leading
 
         return view
     }
