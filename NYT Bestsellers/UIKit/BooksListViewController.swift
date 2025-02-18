@@ -39,6 +39,9 @@ final class BooksListViewController: UIViewController {
 private extension BooksListViewController {
     func setupNavigationBar() {
         navigationItem.title = category.name
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.scrollEdgeAppearance = UINavigationBarAppearance()
     }
 
     func setupSubviews() {
