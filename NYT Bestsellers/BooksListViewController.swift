@@ -189,6 +189,7 @@ final class BooksListViewController: UIViewController {
     private let category: Category
     private var presenter: BooksListPresenter!
     private var books: [Book] = []
+    private let loadingView = UIView()
 
     init(category: Category) {
         self.category = category
@@ -204,6 +205,7 @@ final class BooksListViewController: UIViewController {
         presenter = BooksListPresenter(category: category, view: self)
         setupNavigationBar()
         setupSubviews()
+        setupLoadingView()
 
         Task {
             await presenter.fetchBooks()
@@ -237,35 +239,36 @@ private extension BooksListViewController {
 
         return layout
     }
+
+    func setupLoadingView() {
+        loadingView.backgroundColor = .black
+        loadingView.layer.opacity = 0.5
+        loadingView.isHidden = true
+        view.addSubview(loadingView)
+        loadingView.fillParent()
+        view.sendSubviewToBack(loadingView)
+
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.startAnimating()
+        loadingView.addSubview(activityIndicator)
+        activityIndicator.centerInParent()
+    }
 }
 
 extension BooksListViewController: BooksListView {
     func showLoading() {
-//        let indicator = UIActivityIndicatorView(style: .medium)
-//        indicator.center = tableview.center
-//        indicator.hidesWhenStopped = true
-//
-//        let view = UIView()
-//        view.addSubview(indicator)
-//        indicator.translatesAutoresizingMaskIntoConstraints = false
-//
-//        NSLayoutConstraint.activate([
-//            indicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//            indicator.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
-//        ])
-//
-//        tableview.tableFooterView = view
-//        indicator.startAnimating()
+        loadingView.isHidden = false
+        view.bringSubviewToFront(loadingView)
     }
 
     func hideLoading() {
-//        tableview.tableFooterView = UIView()
+        loadingView.isHidden = true
+        view.sendSubviewToBack(loadingView)
     }
 
     func display(_ books: [Book]) {
         self.books = books
         collectionView.reloadData()
-//        tableview.reloadData()
     }
 
     func displayError(_ error: String) {

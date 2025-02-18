@@ -38,5 +38,7 @@ final class BooksListPresenter {
             totalBooks = response.count
             view?.display(response.results.books)
         }
+
+        view?.hideLoading()
     }
 }
