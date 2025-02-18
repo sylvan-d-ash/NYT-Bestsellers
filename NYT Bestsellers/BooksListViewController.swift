@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class CardViewCell: UICollectionViewCell {
     private let bookImage = UIImageView()
@@ -32,7 +33,9 @@ final class CardViewCell: UICollectionViewCell {
         isbnLabel.text = book.isbn13
         descriptionLabel.text = book.description
         loadingIndicator.startAnimating()
-        // TODO: load image & show placeholder
+
+        bookImage.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        bookImage.sd_setImage(with: URL(string: book.imageUrl))
     }
 
     private func setupSubviews() {
@@ -44,9 +47,6 @@ final class CardViewCell: UICollectionViewCell {
         view.fillParent()
 
         let imageSection = setupImageSection()
-//        view.addSubview(imageSection)
-//        imageSection.fillParentVertically(16)
-//        imageSection.alignToLeft(16)
         let infoSection = setupInfoSection()
         let stackview = UIStackView(arrangedSubviews: [imageSection, infoSection])
         stackview.axis = .horizontal
@@ -58,15 +58,17 @@ final class CardViewCell: UICollectionViewCell {
 
     private func setupImageSection() -> UIView {
         let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 10
+        view.layer.masksToBounds = true
 
-        bookImage.image = UIImage(named: "Oathbringer")
         bookImage.layer.cornerRadius = 10
         bookImage.layer.masksToBounds = true
         bookImage.contentMode = .scaleAspectFill
         view.addSubview(bookImage)
         bookImage.setWidthConstraint(110)
         bookImage.setHeightConstraint(150)
-        bookImage.fillParent()
+        bookImage.fillParent(2)
 
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.style = .medium
@@ -163,7 +165,8 @@ final class BookViewCell: UICollectionViewCell {
     }
 
     func configure(_ book: Book) {
-        // TODO: load image + show placeholder
+        coverImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        coverImageView.sd_setImage(with: URL(string: book.imageUrl))
     }
 
     private func setupSubviews() {
@@ -174,7 +177,6 @@ final class BookViewCell: UICollectionViewCell {
         contentView.addSubview(view)
         view.fillParent()
 
-        coverImageView.image = UIImage(named: "Radiance")
         coverImageView.layer.cornerRadius = 12
         coverImageView.layer.masksToBounds = true
         coverImageView.contentMode = .scaleAspectFill
