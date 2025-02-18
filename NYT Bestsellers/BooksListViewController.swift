@@ -9,8 +9,15 @@ import UIKit
 import SDWebImage
 
 final class CardViewCell: UICollectionViewCell {
+    private enum Dimensions {
+        static let padding: CGFloat = 16
+        static let imageWidth: CGFloat = 110
+        static let imageHeight: CGFloat = 150
+        static let imagePadding: CGFloat = 2
+        static let radius: CGFloat = 10
+    }
+
     private let bookImage = UIImageView()
-    private let loadingIndicator = UIActivityIndicatorView()
     private let titleLabel = UILabel()
     private let authorLabel = UILabel()
     private let publisherLabel = UILabel()
@@ -32,16 +39,19 @@ final class CardViewCell: UICollectionViewCell {
         publisherLabel.text = book.publisher
         isbnLabel.text = book.isbn13
         descriptionLabel.text = book.description
-        loadingIndicator.startAnimating()
 
         bookImage.sd_imageIndicator = SDWebImageActivityIndicator.gray
         bookImage.sd_setImage(with: URL(string: book.imageUrl))
     }
 
+    static func getViewHeight() -> CGFloat {
+        return Dimensions.imageHeight + (2 * Dimensions.imagePadding) + (2 * Dimensions.padding)
+    }
+
     private func setupSubviews() {
         let view = UIView()
         view.backgroundColor = UIColor(red: 0.105, green: 0.776, blue: 0.744, alpha: 1)
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = Dimensions.radius
         view.layer.masksToBounds = true
         contentView.addSubview(view)
         view.fillParent()
@@ -53,27 +63,22 @@ final class CardViewCell: UICollectionViewCell {
         stackview.spacing = 8
         stackview.alignment = .leading
         view.addSubview(stackview)
-        stackview.fillParent(16)
+        stackview.fillParent(Dimensions.padding)
     }
 
     private func setupImageSection() -> UIView {
         let view = UIView()
         view.backgroundColor = .white
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = Dimensions.radius
         view.layer.masksToBounds = true
 
-        bookImage.layer.cornerRadius = 10
+        bookImage.layer.cornerRadius = Dimensions.radius
         bookImage.layer.masksToBounds = true
         bookImage.contentMode = .scaleAspectFill
         view.addSubview(bookImage)
-        bookImage.setWidthConstraint(110)
-        bookImage.setHeightConstraint(150)
-        bookImage.fillParent(2)
-
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.style = .medium
-        view.addSubview(loadingIndicator)
-        loadingIndicator.centerInParent()
+        bookImage.setWidthConstraint(Dimensions.imageWidth)
+        bookImage.setHeightConstraint(Dimensions.imageHeight)
+        bookImage.fillParent(Dimensions.imagePadding)
 
         return view
     }
@@ -153,6 +158,12 @@ final class CardViewCell: UICollectionViewCell {
 }
 
 final class BookViewCell: UICollectionViewCell {
+    private enum Dimensions {
+        static let imageHeight: CGFloat = 150
+        static let radius: CGFloat = 12
+        static let padding: CGFloat = 2
+    }
+
     private let coverImageView = UIImageView()
 
     override init(frame: CGRect) {
@@ -169,20 +180,24 @@ final class BookViewCell: UICollectionViewCell {
         coverImageView.sd_setImage(with: URL(string: book.imageUrl))
     }
 
+    static func getViewHeight() -> CGFloat {
+        return Dimensions.imageHeight + (2 * Dimensions.padding)
+    }
+
     private func setupSubviews() {
         let view = UIView()
         view.backgroundColor = .white
-        view.layer.cornerRadius = 12
+        view.layer.cornerRadius = Dimensions.radius
         view.layer.masksToBounds = true
         contentView.addSubview(view)
         view.fillParent()
 
-        coverImageView.layer.cornerRadius = 12
+        coverImageView.layer.cornerRadius = Dimensions.radius
         coverImageView.layer.masksToBounds = true
         coverImageView.contentMode = .scaleAspectFill
-        coverImageView.setHeightConstraint(150)
+        coverImageView.setHeightConstraint(Dimensions.imageHeight)
         view.addSubview(coverImageView)
-        coverImageView.fillParent(2)
+        coverImageView.fillParent(Dimensions.padding)
     }
 }
 
@@ -316,8 +331,7 @@ extension BooksListViewController: UICollectionViewDelegateFlowLayout {
 
         if indexPath.row == 0 {
             let width = view.bounds.width - (2 * spacing)
-            let height: CGFloat = /* image height */ 150 + /* top + bottom padding */ (2 * 16)
-            return CGSize(width: width, height: height)
+            return CGSize(width: width, height: CardViewCell.getViewHeight())
         }
 
         let numberOfColumns: CGFloat = 3
@@ -325,7 +339,6 @@ extension BooksListViewController: UICollectionViewDelegateFlowLayout {
         let availableWidth = view.bounds.width - (totalSpacing + (2 * spacing) + (2 * 10))
         let cellWidth = floor(availableWidth / numberOfColumns)
 
-        let height: CGFloat = /* image height */ 150 + /* top + bottom padding */ (2 * 2)
-        return CGSize(width: cellWidth, height: height)
+        return CGSize(width: cellWidth, height: BookViewCell.getViewHeight())
     }
 }
