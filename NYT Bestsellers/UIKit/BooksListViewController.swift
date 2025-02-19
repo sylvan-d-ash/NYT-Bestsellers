@@ -130,7 +130,9 @@ extension BooksListViewController: UICollectionViewDataSource {
 
 extension BooksListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: navigate to book details
+        let book = books[indexPath.row]
+        let controller = BookDetailsViewController(book: book)
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 
