@@ -74,46 +74,62 @@ extension UIView {
     }
 
     @discardableResult func alignToTopOf(_ sibling: UIView, padding: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
-        return siblingAlignment(sibling, edge: .top, padding: padding, priority: priority, identifier: identifier)
+        return alignToSibling(sibling, edge: .top, padding: padding, priority: priority, identifier: identifier)
     }
 
     @discardableResult func alignToBottomOf(_ sibling: UIView, padding: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
-        return siblingAlignment(sibling, edge: .bottom, padding: padding, priority: priority, identifier: identifier)
+        return alignToSibling(sibling, edge: .bottom, padding: padding, priority: priority, identifier: identifier)
     }
 
     @discardableResult func alignToLeftOf(_ sibling: UIView, padding: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
-        return siblingAlignment(sibling, edge: .left, padding: padding, priority: priority, identifier: identifier)
+        return alignToSibling(sibling, edge: .left, padding: padding, priority: priority, identifier: identifier)
     }
 
     @discardableResult func alignToRightOf(_ sibling: UIView, padding: CGFloat, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
-        return siblingAlignment(sibling, edge: .right, padding: padding, priority: priority, identifier: identifier)
+        return alignToSibling(sibling, edge: .right, padding: padding, priority: priority, identifier: identifier)
+    }
+
+    @discardableResult func matchWidthOf( _ view: UIView, multiplier: CGFloat = 1, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
+        return alignToSibling(view, edge: .width, multiplier: multiplier, priority: priority, identifier: identifier)
     }
 }
 
 private extension UIView {
-    func alignToParent(_ edge: NSLayoutConstraint.Attribute, padding: CGFloat = 0, relatedBy: NSLayoutConstraint.Relation = .equal, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
+    func alignToParent(_ edge: NSLayoutConstraint.Attribute, padding: CGFloat = 0, relatedBy: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         guard let superview = superview else { return NSLayoutConstraint() }
-        return alignToView(superview, edge: edge, padding: padding, relatedBy: relatedBy, priority: priority, identifier: identifier)
+        return alignToView(superview, 
+                           edge: edge,
+                           padding: padding,
+                           relatedBy: relatedBy,
+                           multiplier: multiplier,
+                           priority: priority,
+                           identifier: identifier)
     }
 
-    func siblingAlignment(_ sibling: UIView, edge: NSLayoutConstraint.Attribute, padding: CGFloat = 0, relatedBy: NSLayoutConstraint.Relation = .equal, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
+    func alignToSibling(_ sibling: UIView, edge: NSLayoutConstraint.Attribute, padding: CGFloat = 0, relatedBy: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
         guard superview != nil, sibling.superview != nil else {
             assertionFailure("both views must have a superview")
             return NSLayoutConstraint()
         }
         translatesAutoresizingMaskIntoConstraints = false
         sibling.translatesAutoresizingMaskIntoConstraints = false
-        return alignToView(sibling, edge: edge, padding: padding, priority: priority, identifier: identifier)
+        return alignToView(sibling, 
+                           edge: edge,
+                           padding: padding, 
+                           relatedBy: relatedBy,
+                           multiplier: multiplier,
+                           priority: priority,
+                           identifier: identifier)
     }
 
-    func alignToView(_ view: UIView, edge: NSLayoutConstraint.Attribute, padding: CGFloat = 0, relatedBy: NSLayoutConstraint.Relation = .equal, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
+    func alignToView(_ view: UIView, edge: NSLayoutConstraint.Attribute, padding: CGFloat, relatedBy: NSLayoutConstraint.Relation, multiplier: CGFloat, priority: UILayoutPriority?, identifier: String?) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = NSLayoutConstraint(item: self,
                                             attribute: edge,
                                             relatedBy: relatedBy,
                                             toItem: view,
                                             attribute: edge,
-                                            multiplier: 1,
+                                            multiplier: multiplier,
                                             constant: padding)
         if let priority = priority {
             constraint.priority = priority
@@ -123,7 +139,7 @@ private extension UIView {
         return constraint
     }
 
-    func setSizeConstraint(_ size: CGFloat, dimension: NSLayoutConstraint.Attribute, relatedBy: NSLayoutConstraint.Relation = .equal, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
+    func setSizeConstraint(_ size: CGFloat, dimension: NSLayoutConstraint.Attribute, relatedBy: NSLayoutConstraint.Relation = .equal, priority: UILayoutPriority?, identifier: String?) -> NSLayoutConstraint {
         translatesAutoresizingMaskIntoConstraints = false
         let constraint = NSLayoutConstraint(item: self,
                                             attribute: dimension,
