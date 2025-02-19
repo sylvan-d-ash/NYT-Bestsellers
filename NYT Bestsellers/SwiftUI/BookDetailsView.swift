@@ -43,12 +43,12 @@ struct BookDetailsView: View {
                             .resizable()
                             .scaledToFill()
                             .frame(width: 160, height: 220)
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
                     } placeholder: {
                         ProgressView()
                     }
 
-                    VStack(alignment: .leading, spacing: 8) {
+                    VStack(alignment: .leading, spacing: 10) {
                         DetailRow(title: "PUBLISHER", value: book.publisher)
                         DetailRow(title: "ISBN", value: book.isbn13)
                         DetailRow(title: "CURRENT RANK", value: "#\(book.rank)")

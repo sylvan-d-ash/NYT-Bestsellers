@@ -32,6 +32,7 @@
 		5EAB1D792D64A5BA00BDF8C6 /* CardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB1D782D64A5BA00BDF8C6 /* CardViewCell.swift */; };
 		5EAB1D7B2D64A61300BDF8C6 /* BookViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB1D7A2D64A61300BDF8C6 /* BookViewCell.swift */; };
 		5EB7E1602D1EBB4C008DC2B6 /* BooksListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7E15F2D1EBB4C008DC2B6 /* BooksListPresenter.swift */; };
+		5EF1FB142D660E98006B8526 /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1FB132D660E98006B8526 /* BookDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		5EAB1D782D64A5BA00BDF8C6 /* CardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewCell.swift; sourceTree = "<group>"; };
 		5EAB1D7A2D64A61300BDF8C6 /* BookViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewCell.swift; sourceTree = "<group>"; };
 		5EB7E15F2D1EBB4C008DC2B6 /* BooksListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListPresenter.swift; sourceTree = "<group>"; };
+		5EF1FB132D660E98006B8526 /* BookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				5EA1525C2D0A506B005D7AEB /* CategoriesListPresenter.swift */,
 				5E42438A2D157F06001FD883 /* BooksListViewController.swift */,
 				5EB7E15F2D1EBB4C008DC2B6 /* BooksListPresenter.swift */,
+				5EF1FB132D660E98006B8526 /* BookDetailsViewController.swift */,
 				5EAB1D7A2D64A61300BDF8C6 /* BookViewCell.swift */,
 				5EAB1D782D64A5BA00BDF8C6 /* CardViewCell.swift */,
 			);
@@ -251,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E4243962D1CBE08001FD883 /* BooksService.swift in Sources */,
+				5EF1FB142D660E98006B8526 /* BookDetailsViewController.swift in Sources */,
 				5EAB1D632D495CFD00BDF8C6 /* Design.swift in Sources */,
 				5EAB1D792D64A5BA00BDF8C6 /* CardViewCell.swift in Sources */,
 				5EAB1D6F2D5CB39500BDF8C6 /* BookDetailsView.swift in Sources */,
