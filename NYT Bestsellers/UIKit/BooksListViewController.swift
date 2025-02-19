@@ -34,14 +34,16 @@ final class BooksListViewController: UIViewController {
             await presenter.fetchBooks()
         }
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
 }
 
 private extension BooksListViewController {
     func setupNavigationBar() {
         navigationItem.title = category.name
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.scrollEdgeAppearance = UINavigationBarAppearance()
     }
 
     func setupSubviews() {
@@ -53,7 +55,14 @@ private extension BooksListViewController {
         collectionView.register(CardViewCell.self, forCellWithReuseIdentifier: String(describing: CardViewCell.self))
         collectionView.register(BookViewCell.self, forCellWithReuseIdentifier: String(describing: BookViewCell.self))
         view.addSubview(collectionView)
-        collectionView.fillParent()
+
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+        ])
     }
 
     func configureCellLayout() -> UICollectionViewLayout {

@@ -107,10 +107,6 @@ private extension UIView {
     }
 
     func alignToSibling(_ sibling: UIView, edge: NSLayoutConstraint.Attribute, padding: CGFloat = 0, relatedBy: NSLayoutConstraint.Relation = .equal, multiplier: CGFloat = 1, priority: UILayoutPriority? = nil, identifier: String? = nil) -> NSLayoutConstraint {
-        guard superview != nil, sibling.superview != nil else {
-            assertionFailure("both views must have a superview")
-            return NSLayoutConstraint()
-        }
         translatesAutoresizingMaskIntoConstraints = false
         sibling.translatesAutoresizingMaskIntoConstraints = false
         return alignToView(sibling, 

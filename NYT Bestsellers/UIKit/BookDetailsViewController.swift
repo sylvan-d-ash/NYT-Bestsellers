@@ -38,25 +38,42 @@ private extension BookDetailsViewController {
 
         let scrollview = UIScrollView()
         view.addSubview(scrollview)
-        scrollview.fillParent()
+        scrollview.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            scrollview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollview.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrollview.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            scrollview.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+        ])
 
         let topSection = setupTopSection()
         let titleSection = setupTitleSection()
+        let spacer = UIView()
 
         let descriptionLabel = UILabel()
         descriptionLabel.text = book.description
-        descriptionLabel.font = .systemFont(ofSize: 12)
+        descriptionLabel.font = .systemFont(ofSize: 14)
         descriptionLabel.textColor = .white
         descriptionLabel.numberOfLines = 0
 
-        let stackview = UIStackView(arrangedSubviews: [topSection, titleSection, descriptionLabel])
+        let divider = UIView()
+        divider.backgroundColor = .white
+
+        let stackview = UIStackView(arrangedSubviews: [topSection, titleSection, divider, descriptionLabel, spacer])
         stackview.axis = .vertical
-        stackview.spacing = 16
+        stackview.spacing = 20
         stackview.alignment = .leading
+        stackview.distribution = .fill
+        stackview.setCustomSpacing(4, after: titleSection)
+
+        divider.setHeightConstraint(2)
+        divider.matchWidthOf(stackview)
 
         scrollview.addSubview(stackview)
-        stackview.fillParent()
-        stackview.matchWidthOf(view)
+        stackview.fillParent(16)
+
+        let width = view.bounds.width - (2 * 16)
+        stackview.setWidthConstraint(width)
     }
 
     func setupTopSection() -> UIView {
@@ -74,24 +91,21 @@ private extension BookDetailsViewController {
     func setupTitleSection() -> UIView {
         let bookTitle = UILabel()
         bookTitle.text = book.title
-        bookTitle.font = .boldSystemFont(ofSize: 16)
+        bookTitle.font = .boldSystemFont(ofSize: 22)
         bookTitle.textColor = .white
         bookTitle.numberOfLines = 0
 
         let authorLabel = UILabel()
         authorLabel.text = book.author
         authorLabel.numberOfLines = 0
-        authorLabel.font = .systemFont(ofSize: 12)
+        authorLabel.font = .systemFont(ofSize: 14)
         authorLabel.textColor = .gray
 
-        let divider = UIView()
-        divider.setHeightConstraint(2)
-        divider.backgroundColor = .gray
-
-        let stackview = UIStackView(arrangedSubviews: [bookTitle, authorLabel, divider])
+        let stackview = UIStackView(arrangedSubviews: [bookTitle, authorLabel])
         stackview.axis = .vertical
-        stackview.spacing = 8
+        stackview.spacing = 4
         stackview.alignment = .leading
+        stackview.distribution = .fill
 
         return stackview
     }
@@ -110,7 +124,7 @@ private extension BookDetailsViewController {
         imageView.sd_setImage(with: URL(string: book.imageUrl))
 
         view.addSubview(imageView)
-        imageView.fillParent()
+        imageView.fillParent(2)
         imageView.setWidthConstraint(160)
         imageView.setHeightConstraint(220)
 
@@ -126,7 +140,7 @@ private extension BookDetailsViewController {
 
         let stackview = UIStackView(arrangedSubviews: [publisherRow, isbnRow, rankRow, previousRankRow])
         stackview.axis = .vertical
-        stackview.spacing = 10
+        stackview.spacing = 12
         stackview.alignment = .leading
 
         return stackview
@@ -135,12 +149,12 @@ private extension BookDetailsViewController {
     func setupDetailRow(_ title: String, value: String) -> UIView {
         let titleLabel = UILabel()
         titleLabel.text = title
-        titleLabel.font = .systemFont(ofSize: 12, weight: .bold) // 17 bold
+        titleLabel.font = .systemFont(ofSize: 14, weight: .bold)
         titleLabel.textColor = .white
 
         let valueLabel = UILabel()
         valueLabel.text = value
-        valueLabel.font = .systemFont(ofSize: 12)
+        valueLabel.font = .systemFont(ofSize: 14)
         valueLabel.textColor = .gray
         valueLabel.numberOfLines = 1
         valueLabel.minimumScaleFactor = 0.7
