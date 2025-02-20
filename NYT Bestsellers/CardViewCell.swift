@@ -82,18 +82,26 @@ private extension CardViewCell {
         bookImage.setHeightConstraint(Dimensions.imageHeight)
         bookImage.fillParent(Dimensions.imagePadding)
 
-        return view
+        let spacer = UIView()
+
+        let stackview = UIStackView(arrangedSubviews: [view, spacer])
+        stackview.axis = .vertical
+        stackview.spacing = 0
+
+        return stackview
     }
 
     func setupInfoSection() -> UIView {
         let titleSection = setupTitleSection()
         let publisherSection = setupPublisherAndISBNSection()
 
-        descriptionLabel.font = .systemFont(ofSize: 12)
+        descriptionLabel.font = .systemFont(ofSize: 14)
         descriptionLabel.textColor = .label
         descriptionLabel.numberOfLines = 0
 
-        let view = UIStackView(arrangedSubviews: [titleSection, publisherSection, descriptionLabel])
+        let spacer = UIView()
+
+        let view = UIStackView(arrangedSubviews: [titleSection, publisherSection, descriptionLabel, spacer])
         view.axis = .vertical
         view.spacing = 8
         view.alignment = .leading
@@ -103,14 +111,15 @@ private extension CardViewCell {
 
     func setupTitleSection() -> UIView {
         titleLabel.numberOfLines = 2
-        titleLabel.minimumScaleFactor = 0.7
+        titleLabel.minimumScaleFactor = 0.8
         titleLabel.adjustsFontSizeToFitWidth = true
-        titleLabel.font = .boldSystemFont(ofSize: 17)
+        titleLabel.font = .boldSystemFont(ofSize: 20)
+        titleLabel.textColor = UIColor(red: 0.042, green: 0.343, blue: 0.34, alpha: 1)
 
         authorLabel.numberOfLines = 1
         authorLabel.minimumScaleFactor = 0.7
         authorLabel.adjustsFontSizeToFitWidth = true
-        authorLabel.font = .systemFont(ofSize: 15, weight: .semibold)
+        authorLabel.font = .systemFont(ofSize: 16, weight: .semibold)
 
         let view = UIStackView(arrangedSubviews: [titleLabel, authorLabel])
         view.axis = .vertical
@@ -121,34 +130,14 @@ private extension CardViewCell {
     }
 
     func setupPublisherAndISBNSection() -> UIView {
-        let pubTitleLabel = UILabel()
-        pubTitleLabel.text = "Publisher:"
-        pubTitleLabel.font = .systemFont(ofSize: 12, weight: .semibold)
-        pubTitleLabel.textColor = UIColor(red: 0.042, green: 0.343, blue: 0.34, alpha: 1)
+        let leftView = setupDetailTitles()
+        let rightView = setupDetailValues()
 
-        publisherLabel.font = .systemFont(ofSize: 12, weight: .semibold)
-        publisherLabel.textColor = UIColor(red: 0.784, green: 0.42, blue: 0.479, alpha: 1)
-        publisherLabel.numberOfLines = 1
-        publisherLabel.minimumScaleFactor = 0.7
-        publisherLabel.adjustsFontSizeToFitWidth = true
-
-        let isbnTitleLabel = UILabel()
-        isbnTitleLabel.text = "Publisher:"
-        isbnTitleLabel.font = .systemFont(ofSize: 12, weight: .semibold)
-        isbnTitleLabel.textColor = UIColor(red: 0.042, green: 0.343, blue: 0.34, alpha: 1)
-
-        isbnLabel.font = .systemFont(ofSize: 12, weight: .semibold)
-        isbnLabel.textColor = UIColor(red: 0.784, green: 0.42, blue: 0.479, alpha: 1)
-
-        let leftView = UIStackView(arrangedSubviews: [pubTitleLabel, isbnTitleLabel])
-        leftView.axis = .vertical
-        leftView.spacing = 4
-        leftView.alignment = .leading
-
-        let rightView = UIStackView(arrangedSubviews: [publisherLabel, isbnLabel])
-        rightView.axis = .vertical
-        rightView.spacing = 4
-        rightView.alignment = .leading
+        for view in [leftView, rightView] {
+            view.axis = .vertical
+            view.spacing = 4
+            view.alignment = .leading
+        }
 
         let view = UIStackView(arrangedSubviews: [leftView, rightView])
         view.axis = .horizontal
@@ -156,5 +145,35 @@ private extension CardViewCell {
         view.alignment = .leading
 
         return view
+    }
+
+    func setupDetailTitles() -> UIStackView {
+        let pubTitleLabel = UILabel()
+        pubTitleLabel.text = "Publisher:"
+
+        let isbnTitleLabel = UILabel()
+        isbnTitleLabel.text = "ISBN:"
+
+        for view in [pubTitleLabel, isbnTitleLabel] {
+            view.font = .systemFont(ofSize: 14, weight: .semibold)
+            view.textColor = UIColor(red: 0.042, green: 0.343, blue: 0.34, alpha: 1)
+        }
+
+        let stackview = UIStackView(arrangedSubviews: [pubTitleLabel, isbnTitleLabel])
+        return stackview
+    }
+
+    func setupDetailValues() -> UIStackView {
+        for view in [publisherLabel, isbnLabel] {
+            view.font = .systemFont(ofSize: 14, weight: .semibold)
+            view.textColor = UIColor(red: 0.784, green: 0.42, blue: 0.479, alpha: 1)
+        }
+
+        publisherLabel.numberOfLines = 1
+        publisherLabel.minimumScaleFactor = 0.7
+        publisherLabel.adjustsFontSizeToFitWidth = true
+
+        let stackview = UIStackView(arrangedSubviews: [publisherLabel, isbnLabel])
+        return stackview
     }
 }
