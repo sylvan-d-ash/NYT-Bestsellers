@@ -27,7 +27,7 @@ final class URLSessionAPIClient: APIClient {
     private let baseUrl = "https://api.nytimes.com/svc/books/v3"
 
     static var apiKey: String {
-        guard let key = Bundle.main.infoDictionary?["API_KEY"] as? String else {
+        guard let key = ProcessInfo.processInfo.environment["NYT_API_KEY"] else {
             fatalError("Missing API Key!")
         }
         return key

@@ -33,7 +33,7 @@ struct CategoriesView: View {
                         .listRowInsets(EdgeInsets(top: 7, leading: 0, bottom: 7, trailing: 0))
                     }
                 }
-            }
+            } 
             .preferredColorScheme(.dark)
             .navigationTitle("Bestseller Categories")
             .navigationDestination(for: Category.self) { category in

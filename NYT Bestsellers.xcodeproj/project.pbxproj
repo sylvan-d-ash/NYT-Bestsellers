@@ -16,16 +16,9 @@
 		5EA1524E2D09E225005D7AEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EA1524C2D09E225005D7AEB /* Main.storyboard */; };
 		5EA152502D09E227005D7AEB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EA1524F2D09E227005D7AEB /* Assets.xcassets */; };
 		5EA152532D09E227005D7AEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EA152512D09E227005D7AEB /* LaunchScreen.storyboard */; };
-		5EA1525B2D09E46D005D7AEB /* CategoriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1525A2D09E46D005D7AEB /* CategoriesListViewController.swift */; };
 		5EA1525D2D0A506B005D7AEB /* CategoriesListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1525C2D0A506B005D7AEB /* CategoriesListPresenter.swift */; };
 		5EA1525F2D0B73BE005D7AEB /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1525E2D0B73BE005D7AEB /* APIClient.swift */; };
 		5EA152612D0B75F2005D7AEB /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA152602D0B75F2005D7AEB /* Category.swift */; };
-		5EAB1D632D495CFD00BDF8C6 /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB1D622D495CFD00BDF8C6 /* Design.swift */; };
-		5EAB1D672D54E96A00BDF8C6 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB1D662D54E96A00BDF8C6 /* CategoriesView.swift */; };
-		5EAB1D692D54F70300BDF8C6 /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB1D682D54F70300BDF8C6 /* CategoriesViewModel.swift */; };
-		5EAB1D6B2D5A0C2700BDF8C6 /* BooksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB1D6A2D5A0C2700BDF8C6 /* BooksList.swift */; };
-		5EAB1D6D2D5A0E5400BDF8C6 /* BooksListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB1D6C2D5A0E5400BDF8C6 /* BooksListViewModel.swift */; };
-		5EAB1D6F2D5CB39500BDF8C6 /* BookDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB1D6E2D5CB39500BDF8C6 /* BookDetailsView.swift */; };
 		5EAB1D722D5F4BBB00BDF8C6 /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB1D712D5F4BBB00BDF8C6 /* UIView+AutoLayout.swift */; };
 		5EAB1D752D64A05100BDF8C6 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5EAB1D742D64A05100BDF8C6 /* SDWebImage */; };
 		5EAB1D772D64A05200BDF8C6 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5EAB1D762D64A05100BDF8C6 /* SDWebImageMapKit */; };
@@ -33,6 +26,21 @@
 		5EAB1D7B2D64A61300BDF8C6 /* BookViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB1D7A2D64A61300BDF8C6 /* BookViewCell.swift */; };
 		5EB7E1602D1EBB4C008DC2B6 /* BooksListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB7E15F2D1EBB4C008DC2B6 /* BooksListPresenter.swift */; };
 		5EF1FB142D660E98006B8526 /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1FB132D660E98006B8526 /* BookDetailsViewController.swift */; };
+		5EF1FB1C2D67343D006B8526 /* NYT_Bestsellers_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1FB1B2D67343D006B8526 /* NYT_Bestsellers_SwiftUIApp.swift */; };
+		5EF1FB1E2D67343D006B8526 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1FB1D2D67343D006B8526 /* ContentView.swift */; };
+		5EF1FB202D673440006B8526 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EF1FB1F2D673440006B8526 /* Assets.xcassets */; };
+		5EF1FB232D673440006B8526 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EF1FB222D673440006B8526 /* Preview Assets.xcassets */; };
+		5EF1FB272D67345A006B8526 /* BooksListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB1D6C2D5A0E5400BDF8C6 /* BooksListViewModel.swift */; };
+		5EF1FB282D67345A006B8526 /* BooksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB1D6A2D5A0C2700BDF8C6 /* BooksList.swift */; };
+		5EF1FB292D67345A006B8526 /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB1D682D54F70300BDF8C6 /* CategoriesViewModel.swift */; };
+		5EF1FB2A2D67345A006B8526 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB1D662D54E96A00BDF8C6 /* CategoriesView.swift */; };
+		5EF1FB2B2D67345A006B8526 /* BookDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAB1D6E2D5CB39500BDF8C6 /* BookDetailsView.swift */; };
+		5EF1FB2D2D6734B9006B8526 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA152602D0B75F2005D7AEB /* Category.swift */; };
+		5EF1FB2E2D6734BD006B8526 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E42438E2D1585DD001FD883 /* Book.swift */; };
+		5EF1FB2F2D6734C2006B8526 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1525E2D0B73BE005D7AEB /* APIClient.swift */; };
+		5EF1FB302D6734C5006B8526 /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4243932D1CBDFB001FD883 /* CategoriesService.swift */; };
+		5EF1FB312D6734C9006B8526 /* BooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4243952D1CBE08001FD883 /* BooksService.swift */; };
+		5EF1FB352D673C41006B8526 /* CategoriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1FB342D673C41006B8526 /* CategoriesListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,19 +48,17 @@
 		5E42438E2D1585DD001FD883 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		5E4243932D1CBDFB001FD883 /* CategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
 		5E4243952D1CBE08001FD883 /* BooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksService.swift; sourceTree = "<group>"; };
-		5EA152432D09E225005D7AEB /* NYT Bestsellers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NYT Bestsellers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EA152432D09E225005D7AEB /* NYT Bestsellers-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NYT Bestsellers-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EA152462D09E225005D7AEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5EA152482D09E225005D7AEB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5EA1524D2D09E225005D7AEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5EA1524F2D09E227005D7AEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5EA152522D09E227005D7AEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5EA152542D09E227005D7AEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5EA1525A2D09E46D005D7AEB /* CategoriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListViewController.swift; sourceTree = "<group>"; };
 		5EA1525C2D0A506B005D7AEB /* CategoriesListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListPresenter.swift; sourceTree = "<group>"; };
 		5EA1525E2D0B73BE005D7AEB /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		5EA152602D0B75F2005D7AEB /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		5EA152622D0B912A005D7AEB /* secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = secrets.xcconfig; sourceTree = "<group>"; };
-		5EAB1D622D495CFD00BDF8C6 /* Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
 		5EAB1D662D54E96A00BDF8C6 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		5EAB1D682D54F70300BDF8C6 /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
 		5EAB1D6A2D5A0C2700BDF8C6 /* BooksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksList.swift; sourceTree = "<group>"; };
@@ -63,6 +69,12 @@
 		5EAB1D7A2D64A61300BDF8C6 /* BookViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewCell.swift; sourceTree = "<group>"; };
 		5EB7E15F2D1EBB4C008DC2B6 /* BooksListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListPresenter.swift; sourceTree = "<group>"; };
 		5EF1FB132D660E98006B8526 /* BookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
+		5EF1FB192D67343D006B8526 /* NYT Bestsellers-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NYT Bestsellers-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EF1FB1B2D67343D006B8526 /* NYT_Bestsellers_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYT_Bestsellers_SwiftUIApp.swift; sourceTree = "<group>"; };
+		5EF1FB1D2D67343D006B8526 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5EF1FB1F2D673440006B8526 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5EF1FB222D673440006B8526 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5EF1FB342D673C41006B8526 /* CategoriesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +84,13 @@
 			files = (
 				5EAB1D772D64A05200BDF8C6 /* SDWebImageMapKit in Frameworks */,
 				5EAB1D752D64A05100BDF8C6 /* SDWebImage in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EF1FB162D67343D006B8526 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +111,9 @@
 			isa = PBXGroup;
 			children = (
 				5EA152622D0B912A005D7AEB /* secrets.xcconfig */,
+				5EF1FB2C2D673498006B8526 /* Shared */,
 				5EA152452D09E225005D7AEB /* NYT Bestsellers */,
+				5EF1FB1A2D67343D006B8526 /* NYT Bestsellers-SwiftUI */,
 				5EA152442D09E225005D7AEB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,7 +121,8 @@
 		5EA152442D09E225005D7AEB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5EA152432D09E225005D7AEB /* NYT Bestsellers.app */,
+				5EA152432D09E225005D7AEB /* NYT Bestsellers-UIKit.app */,
+				5EF1FB192D67343D006B8526 /* NYT Bestsellers-SwiftUI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,36 +130,12 @@
 		5EA152452D09E225005D7AEB /* NYT Bestsellers */ = {
 			isa = PBXGroup;
 			children = (
-				5EAB1D702D5F4B2F00BDF8C6 /* Extensions */,
-				5EAB1D642D54E92D00BDF8C6 /* SwiftUI */,
-				5EAB1D652D54E93500BDF8C6 /* UIKit */,
-				5E4243922D1CBDE4001FD883 /* DataService */,
-				5EAB1D7D2D64A68200BDF8C6 /* Models */,
-				5EAB1D7E2D64A6BF00BDF8C6 /* Resources */,
 				5EA152462D09E225005D7AEB /* AppDelegate.swift */,
 				5EA152482D09E225005D7AEB /* SceneDelegate.swift */,
 				5EA152542D09E227005D7AEB /* Info.plist */,
-			);
-			path = "NYT Bestsellers";
-			sourceTree = "<group>";
-		};
-		5EAB1D642D54E92D00BDF8C6 /* SwiftUI */ = {
-			isa = PBXGroup;
-			children = (
-				5EAB1D622D495CFD00BDF8C6 /* Design.swift */,
-				5EAB1D662D54E96A00BDF8C6 /* CategoriesView.swift */,
-				5EAB1D682D54F70300BDF8C6 /* CategoriesViewModel.swift */,
-				5EAB1D6A2D5A0C2700BDF8C6 /* BooksList.swift */,
-				5EAB1D6C2D5A0E5400BDF8C6 /* BooksListViewModel.swift */,
-				5EAB1D6E2D5CB39500BDF8C6 /* BookDetailsView.swift */,
-			);
-			path = SwiftUI;
-			sourceTree = "<group>";
-		};
-		5EAB1D652D54E93500BDF8C6 /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				5EA1525A2D09E46D005D7AEB /* CategoriesListViewController.swift */,
+				5EAB1D702D5F4B2F00BDF8C6 /* Extensions */,
+				5EAB1D7E2D64A6BF00BDF8C6 /* Resources */,
+				5EF1FB342D673C41006B8526 /* CategoriesListViewController.swift */,
 				5EA1525C2D0A506B005D7AEB /* CategoriesListPresenter.swift */,
 				5E42438A2D157F06001FD883 /* BooksListViewController.swift */,
 				5EB7E15F2D1EBB4C008DC2B6 /* BooksListPresenter.swift */,
@@ -145,7 +143,7 @@
 				5EAB1D7A2D64A61300BDF8C6 /* BookViewCell.swift */,
 				5EAB1D782D64A5BA00BDF8C6 /* CardViewCell.swift */,
 			);
-			path = UIKit;
+			path = "NYT Bestsellers";
 			sourceTree = "<group>";
 		};
 		5EAB1D702D5F4B2F00BDF8C6 /* Extensions */ = {
@@ -175,12 +173,45 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		5EF1FB1A2D67343D006B8526 /* NYT Bestsellers-SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				5EF1FB1B2D67343D006B8526 /* NYT_Bestsellers_SwiftUIApp.swift */,
+				5EAB1D662D54E96A00BDF8C6 /* CategoriesView.swift */,
+				5EAB1D682D54F70300BDF8C6 /* CategoriesViewModel.swift */,
+				5EAB1D6A2D5A0C2700BDF8C6 /* BooksList.swift */,
+				5EAB1D6C2D5A0E5400BDF8C6 /* BooksListViewModel.swift */,
+				5EAB1D6E2D5CB39500BDF8C6 /* BookDetailsView.swift */,
+				5EF1FB1D2D67343D006B8526 /* ContentView.swift */,
+				5EF1FB1F2D673440006B8526 /* Assets.xcassets */,
+				5EF1FB212D673440006B8526 /* Preview Content */,
+			);
+			path = "NYT Bestsellers-SwiftUI";
+			sourceTree = "<group>";
+		};
+		5EF1FB212D673440006B8526 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5EF1FB222D673440006B8526 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5EF1FB2C2D673498006B8526 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				5E4243922D1CBDE4001FD883 /* DataService */,
+				5EAB1D7D2D64A68200BDF8C6 /* Models */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5EA152422D09E225005D7AEB /* NYT Bestsellers */ = {
+		5EA152422D09E225005D7AEB /* NYT Bestsellers-UIKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5EA152572D09E227005D7AEB /* Build configuration list for PBXNativeTarget "NYT Bestsellers" */;
+			buildConfigurationList = 5EA152572D09E227005D7AEB /* Build configuration list for PBXNativeTarget "NYT Bestsellers-UIKit" */;
 			buildPhases = (
 				5EA1523F2D09E225005D7AEB /* Sources */,
 				5EA152402D09E225005D7AEB /* Frameworks */,
@@ -190,13 +221,30 @@
 			);
 			dependencies = (
 			);
-			name = "NYT Bestsellers";
+			name = "NYT Bestsellers-UIKit";
 			packageProductDependencies = (
 				5EAB1D742D64A05100BDF8C6 /* SDWebImage */,
 				5EAB1D762D64A05100BDF8C6 /* SDWebImageMapKit */,
 			);
 			productName = "NYT Bestsellers";
-			productReference = 5EA152432D09E225005D7AEB /* NYT Bestsellers.app */;
+			productReference = 5EA152432D09E225005D7AEB /* NYT Bestsellers-UIKit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5EF1FB182D67343D006B8526 /* NYT Bestsellers-SwiftUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EF1FB242D673440006B8526 /* Build configuration list for PBXNativeTarget "NYT Bestsellers-SwiftUI" */;
+			buildPhases = (
+				5EF1FB152D67343D006B8526 /* Sources */,
+				5EF1FB162D67343D006B8526 /* Frameworks */,
+				5EF1FB172D67343D006B8526 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NYT Bestsellers-SwiftUI";
+			productName = "NYT Bestsellers-SwiftUI";
+			productReference = 5EF1FB192D67343D006B8526 /* NYT Bestsellers-SwiftUI.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -210,6 +258,9 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					5EA152422D09E225005D7AEB = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					5EF1FB182D67343D006B8526 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
 				};
@@ -230,7 +281,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5EA152422D09E225005D7AEB /* NYT Bestsellers */,
+				5EA152422D09E225005D7AEB /* NYT Bestsellers-UIKit */,
+				5EF1FB182D67343D006B8526 /* NYT Bestsellers-SwiftUI */,
 			);
 		};
 /* End PBXProject section */
@@ -246,6 +298,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5EF1FB172D67343D006B8526 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EF1FB232D673440006B8526 /* Preview Assets.xcassets in Resources */,
+				5EF1FB202D673440006B8526 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -255,25 +316,38 @@
 			files = (
 				5E4243962D1CBE08001FD883 /* BooksService.swift in Sources */,
 				5EF1FB142D660E98006B8526 /* BookDetailsViewController.swift in Sources */,
-				5EAB1D632D495CFD00BDF8C6 /* Design.swift in Sources */,
 				5EAB1D792D64A5BA00BDF8C6 /* CardViewCell.swift in Sources */,
-				5EAB1D6F2D5CB39500BDF8C6 /* BookDetailsView.swift in Sources */,
-				5EAB1D672D54E96A00BDF8C6 /* CategoriesView.swift in Sources */,
 				5EAB1D7B2D64A61300BDF8C6 /* BookViewCell.swift in Sources */,
 				5E42438B2D157F06001FD883 /* BooksListViewController.swift in Sources */,
 				5EA152472D09E225005D7AEB /* AppDelegate.swift in Sources */,
-				5EAB1D692D54F70300BDF8C6 /* CategoriesViewModel.swift in Sources */,
+				5EF1FB352D673C41006B8526 /* CategoriesListViewController.swift in Sources */,
 				5EA1525D2D0A506B005D7AEB /* CategoriesListPresenter.swift in Sources */,
-				5EA1525B2D09E46D005D7AEB /* CategoriesListViewController.swift in Sources */,
-				5EAB1D6D2D5A0E5400BDF8C6 /* BooksListViewModel.swift in Sources */,
 				5EB7E1602D1EBB4C008DC2B6 /* BooksListPresenter.swift in Sources */,
 				5EA1525F2D0B73BE005D7AEB /* APIClient.swift in Sources */,
 				5EAB1D722D5F4BBB00BDF8C6 /* UIView+AutoLayout.swift in Sources */,
 				5EA152492D09E225005D7AEB /* SceneDelegate.swift in Sources */,
 				5E4243942D1CBDFB001FD883 /* CategoriesService.swift in Sources */,
 				5E42438F2D1585DD001FD883 /* Book.swift in Sources */,
-				5EAB1D6B2D5A0C2700BDF8C6 /* BooksList.swift in Sources */,
 				5EA152612D0B75F2005D7AEB /* Category.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EF1FB152D67343D006B8526 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EF1FB312D6734C9006B8526 /* BooksService.swift in Sources */,
+				5EF1FB282D67345A006B8526 /* BooksList.swift in Sources */,
+				5EF1FB2B2D67345A006B8526 /* BookDetailsView.swift in Sources */,
+				5EF1FB272D67345A006B8526 /* BooksListViewModel.swift in Sources */,
+				5EF1FB2F2D6734C2006B8526 /* APIClient.swift in Sources */,
+				5EF1FB2A2D67345A006B8526 /* CategoriesView.swift in Sources */,
+				5EF1FB292D67345A006B8526 /* CategoriesViewModel.swift in Sources */,
+				5EF1FB2E2D6734BD006B8526 /* Book.swift in Sources */,
+				5EF1FB1E2D67343D006B8526 /* ContentView.swift in Sources */,
+				5EF1FB302D6734C5006B8526 /* CategoriesService.swift in Sources */,
+				5EF1FB1C2D67343D006B8526 /* NYT_Bestsellers_SwiftUIApp.swift in Sources */,
+				5EF1FB2D2D6734B9006B8526 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +429,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				NYT_API_KEY = "$(NYT_API_KEY)";
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
@@ -412,6 +487,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				NYT_API_KEY = "$(NYT_API_KEY)";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
@@ -476,6 +552,66 @@
 			};
 			name = Release;
 		};
+		5EF1FB252D673440006B8526 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EA152622D0B912A005D7AEB /* secrets.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"NYT Bestsellers-SwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = KL48363826;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.daitensai.NYT-Bestsellers-SwiftUI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5EF1FB262D673440006B8526 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EA152622D0B912A005D7AEB /* secrets.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"NYT Bestsellers-SwiftUI/Preview Content\"";
+				DEVELOPMENT_TEAM = KL48363826;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.daitensai.NYT-Bestsellers-SwiftUI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -488,11 +624,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5EA152572D09E227005D7AEB /* Build configuration list for PBXNativeTarget "NYT Bestsellers" */ = {
+		5EA152572D09E227005D7AEB /* Build configuration list for PBXNativeTarget "NYT Bestsellers-UIKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5EA152582D09E227005D7AEB /* Debug */,
 				5EA152592D09E227005D7AEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5EF1FB242D673440006B8526 /* Build configuration list for PBXNativeTarget "NYT Bestsellers-SwiftUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EF1FB252D673440006B8526 /* Debug */,
+				5EF1FB262D673440006B8526 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

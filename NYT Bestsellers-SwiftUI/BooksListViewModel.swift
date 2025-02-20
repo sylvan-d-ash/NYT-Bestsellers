@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 final class BooksListViewModel: ObservableObject {
     @Published private(set) var rank1Book: Book?
     @Published private(set) var books: [Book] = []
