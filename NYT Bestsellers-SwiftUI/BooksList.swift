@@ -12,16 +12,21 @@ private struct Rank1BookView: View {
 
     var body: some View {
         HStack(alignment: .top) {
-            AsyncImage(url: URL(string: book.imageUrl)) { image in
-                image
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 110, height: 150)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-            } placeholder: {
-                ProgressView(book.title)
-                    .frame(width: 110, height: 150)
+            VStack {
+                AsyncImage(url: URL(string: book.imageUrl)) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 110, height: 150)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                } placeholder: {
+                    ProgressView(book.title)
+                        .frame(width: 110, height: 150)
+                }
             }
+            .padding(2)
+            .background(Color.white)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
 
             VStack(alignment: .leading, spacing: 8) {
                 Text(book.title)
@@ -90,14 +95,20 @@ struct BooksList: View {
                     LazyVGrid(columns: generateGridItems(), spacing: 12) {
                         ForEach(viewModel.books, id: \.rank) { book in
                             NavigationLink(destination: BookDetailsView(book: book)) {
-                                AsyncImage(url: URL(string: book.imageUrl)) { image in
-                                    image
-                                        .resizable()
-                                        .scaledToFit()
-                                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                                } placeholder: {
-                                    ProgressView()
+                                VStack {
+                                    AsyncImage(url: URL(string: book.imageUrl)) { image in
+                                        image
+                                            .resizable()
+                                            .scaledToFill()
+                                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
                                 }
+                                .padding(2)
+                                .background(Color.white)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                .padding(.horizontal, 6)
                             }
                         }
                     }
