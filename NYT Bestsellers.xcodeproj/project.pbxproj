@@ -43,6 +43,8 @@
 		5EF1FB352D673C41006B8526 /* CategoriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1FB342D673C41006B8526 /* CategoriesListViewController.swift */; };
 		5EF2B3662D6CAE5300C612EB /* NYT_Bestsellers_UIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2B3652D6CAE5300C612EB /* NYT_Bestsellers_UIKitTests.swift */; };
 		5EF2B3732D6CAE6800C612EB /* NYT_Bestsellers_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2B3722D6CAE6800C612EB /* NYT_Bestsellers_SwiftUITests.swift */; };
+		5EF2B37B2D6CEFF400C612EB /* MockCategoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2B37A2D6CEFF400C612EB /* MockCategoriesListView.swift */; };
+		5EF2B37D2D6CFBEE00C612EB /* MockCategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2B37C2D6CFBEE00C612EB /* MockCategoriesService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +100,8 @@
 		5EF2B3652D6CAE5300C612EB /* NYT_Bestsellers_UIKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYT_Bestsellers_UIKitTests.swift; sourceTree = "<group>"; };
 		5EF2B3702D6CAE6800C612EB /* NYT Bestsellers-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NYT Bestsellers-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EF2B3722D6CAE6800C612EB /* NYT_Bestsellers_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYT_Bestsellers_SwiftUITests.swift; sourceTree = "<group>"; };
+		5EF2B37A2D6CEFF400C612EB /* MockCategoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCategoriesListView.swift; sourceTree = "<group>"; };
+		5EF2B37C2D6CFBEE00C612EB /* MockCategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCategoriesService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +254,7 @@
 		5EF2B3642D6CAE5300C612EB /* NYT Bestsellers-UIKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				5EF2B3792D6CEFE200C612EB /* Mocks */,
 				5EF2B3652D6CAE5300C612EB /* NYT_Bestsellers_UIKitTests.swift */,
 			);
 			path = "NYT Bestsellers-UIKitTests";
@@ -261,6 +266,15 @@
 				5EF2B3722D6CAE6800C612EB /* NYT_Bestsellers_SwiftUITests.swift */,
 			);
 			path = "NYT Bestsellers-SwiftUITests";
+			sourceTree = "<group>";
+		};
+		5EF2B3792D6CEFE200C612EB /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				5EF2B37A2D6CEFF400C612EB /* MockCategoriesListView.swift */,
+				5EF2B37C2D6CFBEE00C612EB /* MockCategoriesService.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -472,7 +486,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EF2B37B2D6CEFF400C612EB /* MockCategoriesListView.swift in Sources */,
 				5EF2B3662D6CAE5300C612EB /* NYT_Bestsellers_UIKitTests.swift in Sources */,
+				5EF2B37D2D6CFBEE00C612EB /* MockCategoriesService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
