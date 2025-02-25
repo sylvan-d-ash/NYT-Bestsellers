@@ -41,7 +41,6 @@
 		5EF1FB302D6734C5006B8526 /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4243932D1CBDFB001FD883 /* CategoriesService.swift */; };
 		5EF1FB312D6734C9006B8526 /* BooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4243952D1CBE08001FD883 /* BooksService.swift */; };
 		5EF1FB352D673C41006B8526 /* CategoriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF1FB342D673C41006B8526 /* CategoriesListViewController.swift */; };
-		5EF2B3662D6CAE5300C612EB /* NYT_Bestsellers_UIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2B3652D6CAE5300C612EB /* NYT_Bestsellers_UIKitTests.swift */; };
 		5EF2B3732D6CAE6800C612EB /* NYT_Bestsellers_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2B3722D6CAE6800C612EB /* NYT_Bestsellers_SwiftUITests.swift */; };
 		5EF2B37B2D6CEFF400C612EB /* MockCategoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2B37A2D6CEFF400C612EB /* MockCategoriesListView.swift */; };
 		5EF2B37D2D6CFBEE00C612EB /* MockCategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2B37C2D6CFBEE00C612EB /* MockCategoriesService.swift */; };
@@ -98,7 +97,6 @@
 		5EF1FB222D673440006B8526 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5EF1FB342D673C41006B8526 /* CategoriesListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesListViewController.swift; sourceTree = "<group>"; };
 		5EF2B3632D6CAE5300C612EB /* NYT Bestsellers-UIKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NYT Bestsellers-UIKitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5EF2B3652D6CAE5300C612EB /* NYT_Bestsellers_UIKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYT_Bestsellers_UIKitTests.swift; sourceTree = "<group>"; };
 		5EF2B3702D6CAE6800C612EB /* NYT Bestsellers-SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NYT Bestsellers-SwiftUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EF2B3722D6CAE6800C612EB /* NYT_Bestsellers_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYT_Bestsellers_SwiftUITests.swift; sourceTree = "<group>"; };
 		5EF2B37A2D6CEFF400C612EB /* MockCategoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCategoriesListView.swift; sourceTree = "<group>"; };
@@ -257,7 +255,6 @@
 			isa = PBXGroup;
 			children = (
 				5EF2B3792D6CEFE200C612EB /* Mocks */,
-				5EF2B3652D6CAE5300C612EB /* NYT_Bestsellers_UIKitTests.swift */,
 				5EF2B37E2D6E297A00C612EB /* CategoriesListPresenterTests.swift */,
 			);
 			path = "NYT Bestsellers-UIKitTests";
@@ -490,7 +487,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EF2B37B2D6CEFF400C612EB /* MockCategoriesListView.swift in Sources */,
-				5EF2B3662D6CAE5300C612EB /* NYT_Bestsellers_UIKitTests.swift in Sources */,
 				5EF2B37F2D6E297A00C612EB /* CategoriesListPresenterTests.swift in Sources */,
 				5EF2B37D2D6CFBEE00C612EB /* MockCategoriesService.swift in Sources */,
 			);
