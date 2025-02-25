@@ -45,6 +45,7 @@
 		5EF2B3732D6CAE6800C612EB /* NYT_Bestsellers_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2B3722D6CAE6800C612EB /* NYT_Bestsellers_SwiftUITests.swift */; };
 		5EF2B37B2D6CEFF400C612EB /* MockCategoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2B37A2D6CEFF400C612EB /* MockCategoriesListView.swift */; };
 		5EF2B37D2D6CFBEE00C612EB /* MockCategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2B37C2D6CFBEE00C612EB /* MockCategoriesService.swift */; };
+		5EF2B37F2D6E297A00C612EB /* CategoriesListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2B37E2D6E297A00C612EB /* CategoriesListPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		5EF2B3722D6CAE6800C612EB /* NYT_Bestsellers_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NYT_Bestsellers_SwiftUITests.swift; sourceTree = "<group>"; };
 		5EF2B37A2D6CEFF400C612EB /* MockCategoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCategoriesListView.swift; sourceTree = "<group>"; };
 		5EF2B37C2D6CFBEE00C612EB /* MockCategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCategoriesService.swift; sourceTree = "<group>"; };
+		5EF2B37E2D6E297A00C612EB /* CategoriesListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +258,7 @@
 			children = (
 				5EF2B3792D6CEFE200C612EB /* Mocks */,
 				5EF2B3652D6CAE5300C612EB /* NYT_Bestsellers_UIKitTests.swift */,
+				5EF2B37E2D6E297A00C612EB /* CategoriesListPresenterTests.swift */,
 			);
 			path = "NYT Bestsellers-UIKitTests";
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 			files = (
 				5EF2B37B2D6CEFF400C612EB /* MockCategoriesListView.swift in Sources */,
 				5EF2B3662D6CAE5300C612EB /* NYT_Bestsellers_UIKitTests.swift in Sources */,
+				5EF2B37F2D6E297A00C612EB /* CategoriesListPresenterTests.swift in Sources */,
 				5EF2B37D2D6CFBEE00C612EB /* MockCategoriesService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
