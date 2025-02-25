@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 
 protocol CategoriesListView: AnyObject {
     func showLoading()
@@ -18,32 +17,23 @@ protocol CategoriesListView: AnyObject {
 final class CategoriesListPresenter {
     private weak var view: CategoriesListView?
     private let service: CategoriesServiceProtocol
-    private var cancellables = Set<AnyCancellable>()
 
     init(view: CategoriesListView? = nil, service: CategoriesServiceProtocol = CategoriesService()) {
         self.view = view
         self.service = service
     }
 
-    func fetchCategories() {
+    func fetchCategories() async {
         view?.showLoading()
 
-        service.fetchCategories()
-            .sink { [weak self] completion in
-                guard let `self` = self else { return }
-                self.view?.hideLoading()
+        let result = await service.fetchCategories()
+        switch result {
+        case .failure(let error):
+            view?.displayError("Failed to fetch categories: \(error.localizedDescription)")
+        case .success(let response):
+            view?.display(response.results)
+        }
 
-                switch completion {
-                case .failure(let error):
-                    print("Error: \(error.localizedDescription)")
-                    self.view?.displayError("Failed to fetch categories: \(error.localizedDescription)")
-                case .finished:
-                    break
-                }
-            } receiveValue: { [weak self] response in
-                let categories = response.results
-                self?.view?.display(categories)
-            }
-            .store(in: &cancellables)
+        view?.hideLoading()
     }
 }

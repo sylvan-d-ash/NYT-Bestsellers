@@ -6,14 +6,12 @@
 //
 
 import XCTest
-import Combine
 @testable import NYT_Bestsellers_UIKit
 
 final class CategoriesListPresenterTests: XCTestCase {
     var presenter: CategoriesListPresenter!
     var mockView: MockCategoriesListView!
     var mockService: MockCategoriesService!
-    var cancellables: Set<AnyCancellable> = []
 
     override func setUp() {
         super.setUp()
@@ -26,21 +24,21 @@ final class CategoriesListPresenterTests: XCTestCase {
         presenter = nil
         mockView = nil
         mockService = nil
-        cancellables.removeAll()
         super.tearDown()
     }
 
     // Test: Fetching categories successfully
-    func testFetchCategories_Success() {
+    func testFetchCategories_Success() async {
         // Given
         let mockCategories = [
             Category(id: "fiction", name: "Fiction"),
             Category(id: "history", name: "History")
         ]
-        mockService.mockCategories = mockCategories
+        mockService.result = .success(CategoriesResponse(results: mockCategories))
 
-        // When
-        presenter.fetchCategories()
+        await presenter.fetchCategories()
+
+        XCTAssertEqual(mockView.displayedCategories, mockCategories)
 
         // Then
         XCTAssertTrue(mockView.didShowLoading, "showLoading() should be called")
@@ -50,12 +48,13 @@ final class CategoriesListPresenterTests: XCTestCase {
     }
 
     // Test: Fetching categories with an error
-    func testFetchCategories_Failure() {
+    func testFetchCategories_Failure() async {
         // Given
-        mockService.shouldReturnError = true
+        let expectedError = NSError(domain: "Network", code: 500, userInfo: nil)
+        mockService.result = .failure(expectedError)
 
         // When
-        presenter.fetchCategories()
+        await presenter.fetchCategories()
 
         // Then
         XCTAssertTrue(mockView.didShowLoading, "showLoading() should be called")

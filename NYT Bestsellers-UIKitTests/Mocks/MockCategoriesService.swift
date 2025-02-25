@@ -10,18 +10,13 @@ import Combine
 @testable import NYT_Bestsellers_UIKit
 
 final class MockCategoriesService: CategoriesServiceProtocol {
-    var shouldReturnError = false
-    var mockCategories: [NYT_Bestsellers_UIKit.Category] = []
+    var result: Result<CategoriesResponse, Error>?
+
+    func fetchCategories() async -> Result<CategoriesResponse, Error> {
+        return result ?? .failure(NSError(domain: "MockError", code: -1, userInfo: nil))
+    }
 
     func fetchCategories() -> AnyPublisher<CategoriesResponse, Error> {
-        if shouldReturnError {
-            return Fail(error: NSError(domain: "TestError", code: 500, userInfo: [NSLocalizedDescriptionKey: "Network error"]))
-                .eraseToAnyPublisher()
-        } else {
-            let response = CategoriesResponse(results: mockCategories)
-            return Just(response)
-                .setFailureType(to: Error.self)
-                .eraseToAnyPublisher()
-        }
+        fatalError("Not needed for async testing")
     }
 }

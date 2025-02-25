@@ -18,7 +18,10 @@ final class CategoriesListViewController: UIViewController {
         setupSubviews()
 
         presenter = CategoriesListPresenter(view: self)
-        presenter.fetchCategories()
+
+        Task {
+            await presenter.fetchCategories()
+        }
     }
 }
 

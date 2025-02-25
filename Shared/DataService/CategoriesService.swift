@@ -18,6 +18,7 @@ enum CategoryEndpoint: APIEndpoint {
 
 protocol CategoriesServiceProtocol {
     func fetchCategories() -> AnyPublisher<CategoriesResponse, Error>
+    func fetchCategories() async -> Result<CategoriesResponse, Error>
 }
 
 final class CategoriesService: CategoriesServiceProtocol {
@@ -30,5 +31,10 @@ final class CategoriesService: CategoriesServiceProtocol {
     func fetchCategories() -> AnyPublisher<CategoriesResponse, Error> {
         let endpoint = CategoryEndpoint.getCategories
         return apiClient.request(endpoint)
+    }
+
+    func fetchCategories() async -> Result<CategoriesResponse, Error> {
+        let endpoint = CategoryEndpoint.getCategories
+        return await apiClient.request(endpoint)
     }
 }
