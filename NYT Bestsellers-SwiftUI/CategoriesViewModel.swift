@@ -9,12 +9,20 @@ import Foundation
 import Combine
 
 final class CategoriesViewModel: ObservableObject {
-    @Published private(set) var categories: [Category] = []
     @Published private(set) var isLoading = false
     @Published var errorMessage: String?
+    @Published var searchText: String = ""
 
+    private(set) var categories: [Category] = []
     private let service: CategoriesServiceProtocol
     private var cancellabes = Set<AnyCancellable>()
+
+    var filteredCategories: [Category] {
+        if searchText.isEmpty {
+            return categories
+        }
+        return categories.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+    }
 
     init(service: CategoriesServiceProtocol = CategoriesService()) {
         self.service = service

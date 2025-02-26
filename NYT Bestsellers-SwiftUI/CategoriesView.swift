@@ -20,7 +20,7 @@ struct CategoriesView: View {
                     .frame(maxWidth: .infinity)
                     .listRowBackground(Color.clear)
                 } else {
-                    ForEach(viewModel.categories, id: \.id) { category in
+                    ForEach(viewModel.filteredCategories, id: \.id) { category in
                         ZStack(alignment: .leading) {
                             NavigationLink(value: category) {
                                 EmptyView()
@@ -54,6 +54,7 @@ struct CategoriesView: View {
                     Text(message)
                 }
             }
+            .searchable(text: $viewModel.searchText, prompt: "Search Categories")
         }
     }
 }
