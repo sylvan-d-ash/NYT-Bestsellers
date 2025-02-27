@@ -45,7 +45,6 @@ final class CategoriesViewModel: ObservableObject {
                     break
                 }
             } receiveValue: { [weak self] response in
-                self?.isLoading = false
                 self?.categories = response.results
             }
             .store(in: &cancellabes)
