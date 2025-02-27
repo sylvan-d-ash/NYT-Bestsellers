@@ -14,9 +14,11 @@ protocol CategoriesListView: AnyObject {
     func displayError(_ error: String)
 }
 
+@MainActor
 final class CategoriesListPresenter {
     private weak var view: CategoriesListView?
     private let service: CategoriesServiceProtocol
+    private var categories: [Category] = []
 
     init(view: CategoriesListView? = nil, service: CategoriesServiceProtocol = CategoriesService()) {
         self.view = view
@@ -31,9 +33,22 @@ final class CategoriesListPresenter {
         case .failure(let error):
             view?.displayError("Failed to fetch categories: \(error.localizedDescription)")
         case .success(let response):
-            view?.display(response.results)
+            categories = response.results
+            view?.display(categories)
         }
 
         view?.hideLoading()
+    }
+
+    func filterCategories(with text: String) {
+        var filterCategories = [Category]()
+
+        if text.isEmpty {
+            filterCategories = categories
+        } else {
+            filterCategories = categories.filter { $0.name.localizedCaseInsensitiveContains(text) }
+        }
+
+        view?.display(filterCategories)
     }
 }

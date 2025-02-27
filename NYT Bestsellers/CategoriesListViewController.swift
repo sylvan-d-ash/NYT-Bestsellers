@@ -16,6 +16,7 @@ final class CategoriesListViewController: UIViewController {
         super.viewDidLoad()
         setupNavigationBar()
         setupSubviews()
+        setupSearchController()
 
         presenter = CategoriesListPresenter(view: self)
 
@@ -46,6 +47,15 @@ private extension CategoriesListViewController {
             tableview.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableview.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
+    }
+
+    func setupSearchController() {
+        let controller = UISearchController(searchResultsController: nil)
+        controller.searchResultsUpdater = self
+        controller.obscuresBackgroundDuringPresentation = false
+        controller.searchBar.placeholder = "Search Categories"
+        navigationItem.searchController = controller
+        definesPresentationContext = true
     }
 }
 
@@ -93,5 +103,12 @@ extension CategoriesListViewController: UITableViewDelegate {
         let category = categories[indexPath.row]
         let controller = BooksListViewController(category: category)
         navigationController?.pushViewController(controller, animated: true)
+    }
+}
+
+extension CategoriesListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let text = searchController.searchBar.text ?? ""
+        presenter.filterCategories(with: text)
     }
 }

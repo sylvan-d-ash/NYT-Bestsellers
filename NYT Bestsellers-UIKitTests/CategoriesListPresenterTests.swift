@@ -13,6 +13,7 @@ final class CategoriesListPresenterTests: XCTestCase {
     var mockView: MockCategoriesListView!
     var mockService: MockCategoriesService!
 
+    @MainActor
     override func setUp() {
         super.setUp()
         mockView = MockCategoriesListView()
@@ -60,7 +61,7 @@ final class CategoriesListPresenterTests: XCTestCase {
         XCTAssertTrue(mockView.didShowLoading, "showLoading() should be called")
         XCTAssertTrue(mockView.didHideLoading, "hideLoading() should be called")
         XCTAssertNotNil(mockView.displayedError, "displayError() should be called")
-        XCTAssertEqual(mockView.displayedError, "Failed to fetch categories: Network error", "Error message should match expected output")
+        XCTAssertEqual(mockView.displayedError, "Failed to fetch categories: The operation couldn’t be completed. (Network error 500.)", "Error message should match expected output")
         XCTAssertTrue(mockView.displayedCategories.isEmpty, "Categories should be empty")
     }
 }
