@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-final class BookViewCell: UICollectionViewCell {
+final class BookViewCell: ConfigurableBookCell {
     private let coverImageView = UIImageView()
 
     override init(frame: CGRect) {
@@ -20,7 +20,7 @@ final class BookViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(_ book: Book) {
+    override func configure(with book: Book) {
         coverImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
         coverImageView.sd_setImage(with: URL(string: book.imageUrl))
     }

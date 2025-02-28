@@ -29,6 +29,7 @@ final class BooksListPresenter {
 
     func fetchBooks() async {
         view?.showLoading()
+        defer { view?.hideLoading() }
 
         let result = await service.fetchBooks(for: category.id)
         switch result {
@@ -38,7 +39,5 @@ final class BooksListPresenter {
             totalBooks = response.count
             view?.display(response.results.books)
         }
-
-        view?.hideLoading()
     }
 }

@@ -8,7 +8,13 @@
 import UIKit
 import SDWebImage
 
-final class CardViewCell: UICollectionViewCell {
+class ConfigurableBookCell: UICollectionViewCell {
+    func configure(with book: Book) {
+        assertionFailure("Subclasses must implement")
+    }
+}
+
+final class CardViewCell: ConfigurableBookCell {
     private let bookImage = UIImageView()
     private let titleLabel = UILabel()
     private let authorLabel = UILabel()
@@ -25,7 +31,7 @@ final class CardViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(_ book: Book) {
+    override func configure(with book: Book) {
         titleLabel.text = book.title
         authorLabel.text = book.author
         publisherLabel.text = book.publisher

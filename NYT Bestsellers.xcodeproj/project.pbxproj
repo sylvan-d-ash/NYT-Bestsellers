@@ -197,8 +197,8 @@
 				5E42438A2D157F06001FD883 /* BooksListViewController.swift */,
 				5EB7E15F2D1EBB4C008DC2B6 /* BooksListPresenter.swift */,
 				5EF1FB132D660E98006B8526 /* BookDetailsViewController.swift */,
-				5EAB1D7A2D64A61300BDF8C6 /* BookViewCell.swift */,
 				5EAB1D782D64A5BA00BDF8C6 /* CardViewCell.swift */,
+				5EAB1D7A2D64A61300BDF8C6 /* BookViewCell.swift */,
 			);
 			path = "NYT Bestsellers";
 			sourceTree = "<group>";

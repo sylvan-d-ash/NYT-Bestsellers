@@ -120,19 +120,13 @@ extension BooksListViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let book = books[indexPath.row]
+        let identifier = (indexPath.row == 0) ? String(describing: CardViewCell.self) : String(describing: BookViewCell.self)
 
-        if indexPath.row == 0 {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CardViewCell.self), for: indexPath) as? CardViewCell else {
-                return UICollectionViewCell()
-            }
-            cell.configure(book)
-            return cell
-        }
-
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BookViewCell.self), for: indexPath) as? BookViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as? ConfigurableBookCell else {
             return UICollectionViewCell()
         }
-        cell.configure(book)
+        cell.configure(with: book)
+
         return cell
     }
 }
