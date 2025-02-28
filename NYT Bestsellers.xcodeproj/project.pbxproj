@@ -46,6 +46,11 @@
 		5EF2B37F2D6E297A00C612EB /* CategoriesListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2B37E2D6E297A00C612EB /* CategoriesListPresenterTests.swift */; };
 		5EF2B3822D708AB400C612EB /* MockCategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2B3812D708AB400C612EB /* MockCategoriesService.swift */; };
 		5EF2B3842D708BA800C612EB /* CategoriesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2B3832D708BA800C612EB /* CategoriesViewModelTests.swift */; };
+		5EF2B3862D71B30900C612EB /* MockBooksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2B3852D71B30900C612EB /* MockBooksListView.swift */; };
+		5EF2B3882D71B38900C612EB /* MockBooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2B3872D71B38900C612EB /* MockBooksService.swift */; };
+		5EF2B38A2D71B43F00C612EB /* MockBooksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2B3892D71B43F00C612EB /* MockBooksService.swift */; };
+		5EF2B38C2D71B45D00C612EB /* BooksListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2B38B2D71B45D00C612EB /* BooksListPresenterTests.swift */; };
+		5EF2B38E2D71B47000C612EB /* BooksListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF2B38D2D71B47000C612EB /* BooksListViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +109,11 @@
 		5EF2B37E2D6E297A00C612EB /* CategoriesListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListPresenterTests.swift; sourceTree = "<group>"; };
 		5EF2B3812D708AB400C612EB /* MockCategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCategoriesService.swift; sourceTree = "<group>"; };
 		5EF2B3832D708BA800C612EB /* CategoriesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModelTests.swift; sourceTree = "<group>"; };
+		5EF2B3852D71B30900C612EB /* MockBooksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBooksListView.swift; sourceTree = "<group>"; };
+		5EF2B3872D71B38900C612EB /* MockBooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBooksService.swift; sourceTree = "<group>"; };
+		5EF2B3892D71B43F00C612EB /* MockBooksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBooksService.swift; sourceTree = "<group>"; };
+		5EF2B38B2D71B45D00C612EB /* BooksListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListPresenterTests.swift; sourceTree = "<group>"; };
+		5EF2B38D2D71B47000C612EB /* BooksListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +268,7 @@
 			children = (
 				5EF2B3792D6CEFE200C612EB /* Mocks */,
 				5EF2B37E2D6E297A00C612EB /* CategoriesListPresenterTests.swift */,
+				5EF2B38B2D71B45D00C612EB /* BooksListPresenterTests.swift */,
 			);
 			path = "NYT Bestsellers-UIKitTests";
 			sourceTree = "<group>";
@@ -267,6 +278,7 @@
 			children = (
 				5EF2B3802D7089AB00C612EB /* Mocks */,
 				5EF2B3832D708BA800C612EB /* CategoriesViewModelTests.swift */,
+				5EF2B38D2D71B47000C612EB /* BooksListViewModelTests.swift */,
 			);
 			path = "NYT Bestsellers-SwiftUITests";
 			sourceTree = "<group>";
@@ -276,6 +288,8 @@
 			children = (
 				5EF2B37A2D6CEFF400C612EB /* MockCategoriesListView.swift */,
 				5EF2B37C2D6CFBEE00C612EB /* MockCategoriesService.swift */,
+				5EF2B3852D71B30900C612EB /* MockBooksListView.swift */,
+				5EF2B3872D71B38900C612EB /* MockBooksService.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -284,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				5EF2B3812D708AB400C612EB /* MockCategoriesService.swift */,
+				5EF2B3892D71B43F00C612EB /* MockBooksService.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -499,8 +514,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EF2B37B2D6CEFF400C612EB /* MockCategoriesListView.swift in Sources */,
+				5EF2B3882D71B38900C612EB /* MockBooksService.swift in Sources */,
+				5EF2B3862D71B30900C612EB /* MockBooksListView.swift in Sources */,
 				5EF2B37F2D6E297A00C612EB /* CategoriesListPresenterTests.swift in Sources */,
 				5EF2B37D2D6CFBEE00C612EB /* MockCategoriesService.swift in Sources */,
+				5EF2B38C2D71B45D00C612EB /* BooksListPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +526,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EF2B38A2D71B43F00C612EB /* MockBooksService.swift in Sources */,
+				5EF2B38E2D71B47000C612EB /* BooksListViewModelTests.swift in Sources */,
 				5EF2B3842D708BA800C612EB /* CategoriesViewModelTests.swift in Sources */,
 				5EF2B3822D708AB400C612EB /* MockCategoriesService.swift in Sources */,
 			);
