@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import XCTest
+import Combine
+@testable import NYT_Bestsellers_SwiftUI
+
+final class BooksListViewModelTests: XCTest {
+
+}

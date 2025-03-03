@@ -6,3 +6,9 @@
 //
 
 import Foundation
+import XCTest
+@testable import NYT_Bestsellers_UIKit
+
+final class BooksListPresenterTests: XCTest {
+
+}
