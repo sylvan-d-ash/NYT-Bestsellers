@@ -15,7 +15,7 @@ final class CategoriesViewModel: ObservableObject {
 
     private(set) var categories: [Category] = []
     private let service: CategoriesServiceProtocol
-    private var cancellabes = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
 
     var filteredCategories: [Category] {
         if searchText.isEmpty {
@@ -47,6 +47,6 @@ final class CategoriesViewModel: ObservableObject {
             } receiveValue: { [weak self] response in
                 self?.categories = response.results
             }
-            .store(in: &cancellabes)
+            .store(in: &cancellables)
     }
 }

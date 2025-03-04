@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import Combine
 
-@MainActor
+//@MainActor
 final class BooksListViewModel: ObservableObject {
     @Published private(set) var rank1Book: Book?
     @Published private(set) var books: [Book] = []
@@ -17,29 +18,41 @@ final class BooksListViewModel: ObservableObject {
     private let category: Category
     private let service: BooksServiceProtocol
     private var totalBooks = 0
+    private var cancellables = Set<AnyCancellable>()
 
     init(category: Category, service: BooksServiceProtocol = BooksService()) {
         self.category = category
         self.service = service
     }
 
-    func loadBooks() async {
+    func loadBooks() {
         guard !isLoading else { return }
         isLoading = true
         errorMessage = nil
 
-        let result = await service.fetchBooks(for: category.id)
-        switch result {
-        case .failure(let error):
-            errorMessage = "Error fetching books: \(error.localizedDescription)"
-        case .success(let response):
-            totalBooks = response.count
+        service.fetchBooks(for: category.id)
+            .sink { [weak self] completion in
+                guard let `self` = self else { return }
+                self.isLoading = false
 
-            var books = response.results.books
-            rank1Book = books.removeFirst()
-            self.books = books
-        }
+                switch completion {
+                case .failure(let error):
+                    errorMessage = "Error fetching books: \(error.localizedDescription)"
+                case .finished:
+                    break
+                }
+            } receiveValue: { response in
+                self.totalBooks = response.count
 
-        isLoading = false
+                var books = response.results.books
+                if !books.isEmpty {
+                    self.rank1Book = books.removeFirst()
+                    self.books = books
+                } else {
+                    self.rank1Book = nil
+                    self.books = []
+                }
+            }
+            .store(in: &cancellables)
     }
 }

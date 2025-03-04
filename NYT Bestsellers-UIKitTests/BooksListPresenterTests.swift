@@ -9,7 +9,7 @@ import Foundation
 import XCTest
 @testable import NYT_Bestsellers_UIKit
 
-final class BooksListPresenterTests: XCTest {
+final class BooksListPresenterTests: XCTestCase {
     private var presenter: BooksListPresenter!
     private var view: MockBooksListView!
     private var service: MockBooksService!

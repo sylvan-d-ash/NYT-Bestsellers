@@ -119,7 +119,7 @@ struct BooksList: View {
         .preferredColorScheme(.dark)
         .navigationTitle(category.name)
         .task {
-            await viewModel.loadBooks()
+            viewModel.loadBooks()
         }
         // NOTE: this causes the progress indicator to display above the title which isn't
         // the desired effect
