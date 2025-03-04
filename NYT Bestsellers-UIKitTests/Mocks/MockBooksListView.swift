@@ -9,17 +9,17 @@ import Foundation
 @testable import NYT_Bestsellers_UIKit
 
 final class MockBooksListView: BooksListView {
-    private(set) var didShowLoading = false
-    private(set) var didHideLoading = false
+    private(set) var showLoadingCalled = false
+    private(set) var hideLoadingCalled = false
     private(set) var displayedBooks = [Book]()
     private(set) var displayedError: String?
 
     func showLoading() {
-        didShowLoading = true
+        showLoadingCalled = true
     }
 
     func hideLoading() {
-        didHideLoading = true
+        hideLoadingCalled = true
     }
 
     func display(_ books: [Book]) {

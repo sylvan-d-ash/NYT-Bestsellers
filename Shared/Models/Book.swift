@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Book: Decodable {
+struct Book: Decodable, Equatable {
     let rank: Int
     let title: String
     let author: String
@@ -22,6 +22,10 @@ struct Book: Decodable {
         case previousRank = "rank_last_week"
         case isbn13 = "primary_isbn13"
         case imageUrl = "book_image"
+    }
+
+    static func ==(lhs: Book, rhs: Book) -> Bool {
+        return lhs.isbn13 == rhs.isbn13
     }
 }
 
